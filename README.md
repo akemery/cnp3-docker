@@ -11,8 +11,6 @@ sudo docker pull akemery/ubuntu
 ```
 
 
-```
-
 ## run akemery/cnp3 images
 $ sudo docker run -it --privileged akemery/cnp3 bash
 ```
