@@ -7,7 +7,7 @@ sudo docker pull akemery/cnp3
 ## build akemey/cnp3 image
 
 ```
- $ sudo docker  sudo docker build -t akemery/cnp3 .
+ $ sudo docker build -t akemery/cnp3 .
 ```
 
 ## run akemery/cnp3 images
