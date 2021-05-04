@@ -4,7 +4,7 @@ WORKDIR /cnp3
 
 ENV DEBIAN_FRONTEND noninteractive 
 
-RUN echo exit 0 > /usr/sbin/policy-rc.d && apt-get update && apt-get install apt-utils grub2 -y 
+RUN echo exit 0 > /usr/sbin/policy-rc.d && apt-get update && apt-get install apt-utils grub2  iputils-ping -y 
 
 
 ADD exercises/ /cnp3
