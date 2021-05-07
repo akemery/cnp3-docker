@@ -17,8 +17,10 @@ $ sudo docker run -it --privileged akemery/cnp3 bash
 
 ## or run with kata-runtime
 
+You should reserve at least 12GB to docker. 
+
 ```
-$ sudo docker run -ti --runtime kata-runtime  --privileged  akemery/cnp3 bash
+$ sudo docker run -ti --runtime kata-runtime  --privileged --memory 12884901792  akemery/cnp3 bash
 ```
 ## run on the docker ipmininet script
 ```
