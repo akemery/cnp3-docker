@@ -17,7 +17,7 @@ $ sudo docker run -it --privileged akemery/cnp3 bash
 
 ## or run with kata-runtime
 
-You should reserve at least 12GB to docker. 
+You should reserve at least 12GB for docker because VM kata-container needs that.
 
 ```
 $ sudo docker run -ti --runtime kata-runtime  --privileged --memory 12884901792  akemery/cnp3 bash
