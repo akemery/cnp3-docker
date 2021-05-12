@@ -28,6 +28,7 @@ class TestDocker(unittest.TestCase):
         print(r)
         r = container.exec_run('ps -aux')
         print(r)
+        container.wait()
         container.stop()
         container.remove()
 
