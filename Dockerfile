@@ -4,7 +4,7 @@ WORKDIR /cnp3
 
 ENV DEBIAN_FRONTEND noninteractive 
 
-RUN echo exit 0 > /usr/sbin/policy-rc.d && apt-get update && apt-get install apt-utils iputils-ping iperf3 -y 
+RUN echo exit 0 > /usr/sbin/policy-rc.d && apt-get update && apt-get install apt-utils iputils-ping grub2 iperf3 -y 
 
 
 ADD exercises/ /cnp3
@@ -17,4 +17,6 @@ RUN apt-get install binutils git sudo   python3-pip  -y && \
     echo exit 0 > /usr/sbin/policy-rc.d && \
     python3 -m ipmininet.install -a
     
-CMD [ "echo", "welcome to ipmininet" ]
+COPY run.sh /cnp3
+  
+CMD [ "bash", "/cnp3/run.sh" ]
