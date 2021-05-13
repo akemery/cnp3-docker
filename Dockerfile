@@ -19,4 +19,4 @@ RUN apt-get install binutils git sudo   python3-pip  -y && \
     
 COPY run.sh /cnp3
   
-CMD [ "bash", "/cnp3/run.sh" ]
+CMD [ "echo", "welcome" ]
