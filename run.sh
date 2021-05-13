@@ -1,3 +1,3 @@
 #!/bin/bash
 
-python3 ipmininet_scripts/ospf6.py
+python3 -m SimpleHTTPServer 8888
