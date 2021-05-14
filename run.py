@@ -26,7 +26,7 @@ class TestDocker(unittest.TestCase):
         self.assertNotEqual(container, None) 
         r = container.exec_run('uname -a')
         print(r)
-        r = container.exec_run('ps -aux')
+        r = container.exec_run('sudo mn --test pingall --custom ipmininet_scripts/withip.py')
         print(r)
         container.wait()
         container.stop()
