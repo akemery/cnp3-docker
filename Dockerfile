@@ -18,5 +18,7 @@ RUN apt-get install binutils git sudo   python3-pip  -y && \
     python3 -m ipmininet.install -a
     
 COPY run.sh /cnp3
-  
+
+COPY /sys/module/bridge/  /sys/module/bridge
+
 CMD [ "bash", "/cnp3/run.sh" ]
