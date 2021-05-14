@@ -2,42 +2,42 @@ import unittest
 import docker
 import sys
 
-#image = sys.argv[1]
-
+image = "akemery/cnp3"
+script = "ipmininet_scripts/withip.py"
 
 class TestDocker(unittest.TestCase):
     def setUp(self):
         client = docker.DockerClient(base_url='unix://var/run/docker.sock')
         self.assertNotEqual(client, None) 
-        container = client.containers.run(image="akemery/cnp3", detach=True, runtime='kata-runtime', privileged=True, mem_limit='50g')
+        container = client.containers.run(image=image, detach=True, runtime='kata-runtime', privileged=True, mem_limit='50g')
         self.assertNotEqual(container, None) 
         self.container = container
         
-    def test_pingall(self):
-        r = self.container.exec_run('sudo mn --test pingall --custom ipmininet_scripts/withip.py')
+    def test_basic(self):
+        command = 'sudo mn --test pingall --custom ' + script
+        r = self.container.exec_run(command)
         print(r)
         self.assertNotEqual(r, None)
+        # test_pingpair
+        command = 'sudo mn --test pingpair --custom ' + script
+        r = self.container.exec_run(command)
+        print(r)
+        self.assertNotEqual(r, None)
+        # test_iperf
+        command = 'sudo mn --test iperf --custom ' + script
+        r = self.container.exec_run(command)
+        print(r)
+        self.assertNotEqual(r, None)
+        #test_iperfudp
+        command = 'sudo mn --test iperfudp --custom ' + script
+        r = self.container.exec_run(command)
+        print(r)
+        self.assertNotEqual(r, None)
+        
         self.container.stop()
         self.container.remove()
-
-    def test_pingpair(self):
-        r = self.container.exec_run('sudo mn --test pingpair --custom ipmininet_scripts/withip.py')
-        print(r)
-        self.assertNotEqual(r, None)
-        self.container.stop()
-        self.container.remove()
-
-    def test_iperf(self):
-        r = self.container.exec_run('sudo mn --test iperf --custom ipmininet_scripts/withip.py')
-        print(r)
-        self.assertNotEqual(r, None)
-        self.container.stop()
-        self.container.remove()
-
-    def test_iperfudp(self):
-        r = self.container.exec_run('sudo mn --test iperfudp --custom ipmininet_scripts/withip.py')
-        print(r)
-        self.assertNotEqual(r, None)
+            
+    def tearDown(self):
         self.container.stop()
         self.container.remove()
 
