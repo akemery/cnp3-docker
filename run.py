@@ -1,34 +1,55 @@
 import unittest
 import docker
 
+image = sys.argv[1]
+
 class TestDocker(unittest.TestCase):
-    """
-    def test_upper(self):
-        self.assertEqual('foo'.upper(), 'FOO')
-
-    def test_isupper(self):
-        self.assertTrue('FOO'.isupper())
-        self.assertFalse('Foo'.isupper())
-
-    def test_split(self):
-        s = 'hello world'
-        self.assertEqual(s.split(), ['hello', 'world'])
-        # check that s.split fails when the separator is not a string
-        with self.assertRaises(TypeError):
-            s.split(2)
-    """
-    def test_docker(self):
+    def setUp(self):
+        client = docker.DockerClient(base_url='unix://var/run/docker.sock')
+        self.assertNotEqual(client, None) 
+        container = client.containers.run(image=image, detach=True, runtime='kata-runtime', privileged=True, mem_limit='50g')
+        self.assertNotEqual(container, None) 
+        
+    def test_pingall(self):
+        r = container.exec_run('sudo mn --test pingall --custom ipmininet_scripts/withip.py')
+        print(r)
+        self.assertNotEqual(r, None)
+        container.stop()
+        container.remove()
+    def test_pingpair(self):
+        """
         client = docker.DockerClient(base_url='unix://var/run/docker.sock')
         self.assertNotEqual(client, None) 
         container = client.containers.run(image="akemery/cnp3", detach=True, runtime='kata-runtime', privileged=True, mem_limit='50g')
-        #container.restart()
-        print(container.logs())
         self.assertNotEqual(container, None) 
-        r = container.exec_run('uname -a')
+        """
+        r = container.exec_run('sudo mn --test pingpair --custom ipmininet_scripts/withip.py')
         print(r)
-        r = container.exec_run('sudo mn --test pingall --custom ipmininet_scripts/withip.py')
+        self.assertNotEqual(r, None)
+        container.stop()
+        container.remove()
+     def test_iperf(self):
+        """
+        client = docker.DockerClient(base_url='unix://var/run/docker.sock')
+        self.assertNotEqual(client, None) 
+        container = client.containers.run(image="akemery/cnp3", detach=True, runtime='kata-runtime', privileged=True, mem_limit='50g')
+        self.assertNotEqual(container, None) 
+        """
+        r = container.exec_run('sudo mn --test iperf --custom ipmininet_scripts/withip.py')
         print(r)
-        container.wait()
+        self.assertNotEqual(r, None)
+        container.stop()
+        container.remove()
+     def test_iperfudp(self):
+        """
+        client = docker.DockerClient(base_url='unix://var/run/docker.sock')
+        self.assertNotEqual(client, None) 
+        container = client.containers.run(image="akemery/cnp3", detach=True, runtime='kata-runtime', privileged=True, mem_limit='50g')
+        self.assertNotEqual(container, None)
+        """ 
+        r = container.exec_run('sudo mn --test iperfudp --custom ipmininet_scripts/withip.py')
+        print(r)
+        self.assertNotEqual(r, None)
         container.stop()
         container.remove()
 
