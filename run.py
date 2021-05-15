@@ -33,7 +33,9 @@ class TestDocker(unittest.TestCase):
         r = self.container.exec_run(command)
         print(r)
         self.assertNotEqual(r, None)
-        
+        # m command
+        r = self.container.exec_run("../mininet/util/m h1 ifconfig")
+        print(r)
         self.container.stop()
         self.container.remove()
             
