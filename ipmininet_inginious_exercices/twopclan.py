@@ -1,15 +1,18 @@
 
 import ipmininet
 import sys
+import gettext
 from ipmininet.cli import IPCLI
 from ipmininet.ipnet import IPNet
 from ipmininet.iptopo import IPTopo
 
 from mininet.log import lg
 
-from tests.test_twopclan import Test_TwoPCLAN
+from inginious.grader import Grader
 
-
+fr = gettext.translation('base', localedir='locales', languages=['fr'])
+fr.install()
+_ = fr.gettext # french
 
 """
 
@@ -44,9 +47,10 @@ try:
     net.start()
     IPCLI(net)
 finally:
-    test = Test_TwoPCLAN(net, sys.argv[1], sys.argv[2], sys.argv[3])
+    test = Grader(net, sys.argv[1], sys.argv[2], sys.argv[3])
     state, feedback = test.checksubnet_addr()
-    if state == "Failed":
-        print(feedback)
+    
+    print(feedback)
+        
     net.stop()
 
