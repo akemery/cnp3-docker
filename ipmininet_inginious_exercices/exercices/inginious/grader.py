@@ -1,10 +1,9 @@
 import pytest
 import json
 import gettext
-import ipaddress
+
 from ipmininet.ipnet import IPNet
 from mininet.log import lg as log
-
 
 
 """
@@ -52,77 +51,58 @@ class Grader:
         else :
             ip_blocks = ipaddr.split(":")
             subnet_blocks = subnet_addr.split(":")
+            i = 7
             ip_blocks_bin = ["0".zfill(16), "0".zfill(16), "0".zfill(16), \
                              "0".zfill(16), "0".zfill(16), "0".zfill(16), \
                              "0".zfill(16), "0".zfill(16)]
             subnet_blocks_bin = ["0".zfill(16), "0".zfill(16), "0".zfill(16), \
                                  "0".zfill(16), "0".zfill(16), "0".zfill(16), \
                                  "0".zfill(16), "0".zfill(16)]
-            i = 0
             for ip_block, subnet_block in zip(ip_blocks, subnet_blocks):
                 if (ip_block == '') or ( "/" in ip_block )  \
                     or (subnet_block == '') or ( "/" in subnet_block ):
+                    i = 0
                     continue
                 ip_blocks_bin[i] = bin(int(ip_block,16))[2:].zfill(16)
                 subnet_blocks_bin[i] = bin(int(subnet_block,16))[2:].zfill(16)
-                i+=1
+                print(ip_blocks_bin[i])
+                print(subnet_blocks_bin[i])
+                i-=1
             for k, j in zip(ip_blocks_bin, subnet_blocks_bin) :
                 rbits =  int(prefixlen) - prefm
                 r = self.getlgprefm(k, j, rbits, 16)
                 prefm += r
                 if(r != 16):
-                   break;          
+                   break;           
         return prefm
         
-    def checksubnet_addr(self, family, subnet, prefixlen, nodes=[]):
+    def checksubnet_addr(self, family, subnet, prefixlen, hosts=[], routers=[]):
         found_addr = False
-        state = _("Failed")
-        feedback = _("Addresses are not configured, retry please")
-        for n in nodes:
-            h = None
-            """ search in hosts """
-            for host in self.net.hosts:
-                if host.name == n:
-                    h = host
-                    break
-            """ if notfound search in router """
-            if h == None:
-                for router in self.net.routers:
-                    if router.name == n:
-                        h = router
-                        break
-            """ if notfound go to the next """
-            if h == None:
+        state = "Failed"
+        feedback = "Addresses are not configured, retry please"
+        for h in self.net.hosts:
+            if h.name not in hosts:
                 continue
-            print(h.name)
             cmd = "ip -j addr show"
             r = h.cmd(cmd)
             jr = json.loads(r)
-            found_addr = False
             for data in jr :
                 if data['ifname'] == "lo":
                     continue
                 for addrinfo in data['addr_info']:
                     if family == "4":
-                        if found_addr == True:
-                            break;
                         if addrinfo['family'] != "inet":
                             continue
                         if int(addrinfo['prefixlen']) != int(prefixlen):
                             state = _("Failed") 
                             feedback = _("IPv4 Prefixlen does not match")
-                            continue
                         prefm = self.getprefixlenmatch ("inet", addrinfo['local'], subnet, prefixlen)
-                      
                         if (prefm != int(prefixlen)):
-                                state = _("Failed") 
-                                feedback = _("IPv4 address prefix does not match")
-                                continue
+                                state = _("Failed")
+                                feedback =  _("IPv4 address prefix does not match")
                         found_addr = True
                     else:
                         if family == "6":
-                            if found_addr == True:
-                                break;
                             if addrinfo['scope'] == 'link':
                                 continue
                             if addrinfo['family'] != "inet6":
@@ -130,19 +110,18 @@ class Grader:
                             if int(addrinfo['prefixlen']) != int(prefixlen):
                                 state = _("Failed")
                                 feedback = _("IPV6 Prefixlen does not match")
-                                continue
                             prefm = self.getprefixlenmatch ("inet6", addrinfo['local'], subnet, prefixlen)
                             if (prefm != int(prefixlen)):
-                                state = _("Failed")
+                                state = _("Failed") 
                                 feedback = _("IPV6 address prefix does not match")
-                                continue
                             found_addr = True
                         else:
-                            return _("Failed"), _("Bad input arguments")
-        if found_addr == True:                                     
+                            state = _("Failed")
+                            feedback = _("Bad input arguments")
+        if found_addr:                                     
             return _("Success"), _("Congratulation")
         else:
-            return state, feedback 
+            return state, feedback
             
     def check_ipaddr(self, family, subnet, prefixlen, hosts=[], routers=[]):
         for h in self.net.hosts:
@@ -153,14 +132,10 @@ class Grader:
                 itf = self.net[h.name].intf(intfName)
                 itf.ip = "192.168.5.2/24"
                 print(itf.prefixLen) 
-               
-               
-               
+                
+                
     def check_default_route(self, family, gw, nodes=[]):
-        found_gw = False
-        state = _("Failed")
-        feedback = _("Gateway is not correctly configured")
-        for h in self.net.hosts:
+        for h in self.hosts:
             if h.name not in nodes:
                 continue
             if family == "4":
@@ -169,16 +144,4 @@ class Grader:
                 cmd = "ip -6 -j route show"
             r = h.cmd(cmd)
             jr = json.loads(r)
-            for data in jr:
-                if found_gw :
-                    break
-                try:
-                    gateway = ipaddress.ip_address(data['gateway'])
-                    if gateway == ipaddress.ip_address(gw):
-                        found_gw = True
-                finally:
-                    continue
-        if found_gw :                                     
-            return _("Success"), _("Congratulation")
-        else:
-            return state, feedback 
+            print(jr)

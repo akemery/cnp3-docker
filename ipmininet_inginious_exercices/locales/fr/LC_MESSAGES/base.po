@@ -44,7 +44,7 @@ msgstr "Arguments incorrects"
 
 #: inginious/grader.py:105
 msgid "Success"
-msgstr "Suucès"
+msgstr "Succès"
 
 #: inginious/grader.py:105
 msgid "Congratulation"
