@@ -1,6 +1,7 @@
 
 import ipmininet
 import sys
+import os
 import gettext
 from ipmininet.cli import IPCLI
 from ipmininet.ipnet import IPNet
@@ -9,6 +10,12 @@ from ipmininet.iptopo import IPTopo
 
 
 from mininet.log import lg
+
+src_dir = os.path.dirname(__file__)
+
+inginious_dir = os.path.join( src_dir, '..', 'inginious')
+
+sys.path.append(inginious_dir)
 
 from inginious.grader import Grader
 

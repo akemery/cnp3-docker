@@ -1,12 +1,19 @@
 
 import ipmininet
 import sys
+import os
 import gettext
 from ipmininet.cli import IPCLI
 from ipmininet.ipnet import IPNet
 from ipmininet.iptopo import IPTopo
 
 from mininet.log import lg
+
+src_dir = os.path.dirname(__file__)
+
+inginious_dir = os.path.join( src_dir, '..', 'inginious')
+
+sys.path.append(inginious_dir)
 
 from inginious.grader import Grader
 
@@ -22,7 +29,6 @@ fr.install()
 _ = gettext.gettext
 
 """
-
 This file contains a simple topology with two connected hosts
 
   h1 ------- h2
@@ -30,8 +36,6 @@ This file contains a simple topology with two connected hosts
 In this topology, h1 and h2 have no IP address. You have to  give an IP address
 to each host to make them communicate based to subnet address p prefix length n
 and address family fa.
-
-
 """
         
 
