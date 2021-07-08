@@ -25,13 +25,9 @@ fr.install()
 _ = fr.gettext # french
 
 """
-
 _ = gettext.gettext
-
-"""
-
-This file contains a simple topology with three routers and three hosts
-      p1   p4   p2
+""" This file contains a simple topology with three routers and three hosts h1,
+    h2   h3
   h1 ---r1--r2---- h2
         p6\  / p5
            r3
@@ -40,15 +36,12 @@ This file contains a simple topology with three routers and three hosts
 In this topology, h1, h2, h3 and r1, r2, r3 have respectively no IP address. 
 You have to  give an IP address to each host interface and the routers interfaces 
 to make them communicate based to subnet address p1, p2, p3, p4, p5 
-prefix length n and address family fa.
-
-
-"""
+prefix length n and address family fa."""
         
 
 class LANWith3Routers(IPTopo):
 
-    def __init__(self, family, subnet=[], prefixlen=[], gw=[], outIntf=[], *args, **kwargs):
+    def __init__(self, family, subnet=[], prefixlen=[], gw=[], *args, **kwargs):
         self.family = family
         self.subnet = subnet
         self.prefixlen = prefixlen
@@ -123,6 +116,32 @@ class LANWith3Routers(IPTopo):
         print(state, file=open("state3.txt", "a"))
         print(feedback, file=open("feedback3.txt", "a"))
         
+        nodes = ["r1"]
+        outIntf=["r1-eth1", "r1-eth2"]
+        dst = ["192.168.2.0/24", "192.168.3.0/24"]
+        nexthopIP = ["192.168.4.2", "192.168.6.2"]
+        state, feedback = test.check_static_route(self.family, dst, outIntf, nexthopIP, nodes)
+        print(state, file=open("state3.txt", "a"))
+        print(feedback, file=open("feedback3.txt", "a"))
+        
+        
+        nodes = ["r2"]
+        outIntf=["r2-eth1", "r2-eth2"]
+        dst = ["192.168.1.0/24", "192.168.3.0/24"]
+        nexthopIP = ["192.168.4.1", "192.168.5.2"]
+        state, feedback = test.check_static_route(self.family, dst, outIntf, nexthopIP, nodes)
+        print(state, file=open("state3.txt", "a"))
+        print(feedback, file=open("feedback3.txt", "a"))
+        
+        
+        nodes = ["r3"]
+        outIntf=["r3-eth1", "r3-eth2"]
+        dst = ["192.168.2.0/24", "192.168.1.0/24"]
+        nexthopIP = ["192.168.5.1", "192.168.6.1"]
+        state, feedback = test.check_static_route(self.family, dst, outIntf, nexthopIP, nodes)
+        print(state, file=open("state3.txt", "a"))
+        print(feedback, file=open("feedback3.txt", "a"))
+       
         super(LANWith3Routers, self).post_build(net)
 
 
