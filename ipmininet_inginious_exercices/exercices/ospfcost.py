@@ -100,7 +100,7 @@ class OSPFCost(IPTopo):
 ipmininet.DEBUG_FLAG = True
 lg.setLogLevel("info")
 
-
+"""
 net = IPNet(topo=OSPFCost(), use_v4=False, use_v6=False, allocate_IPs=False)
 
 try:
@@ -108,3 +108,4 @@ try:
     IPCLI(net)
 finally:
     net.stop()
+"""
