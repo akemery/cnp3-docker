@@ -142,7 +142,7 @@ class LANWith3Routers(IPTopo):
         print(state, file=open("state3.txt", "a"))
         print(feedback, file=open("feedback3.txt", "a"))
        
-        super(LANWith3Routers, self).post_build(net)
+        super(LANWith3Routers, self).pre_stop(net)
 
 
 ipmininet.DEBUG_FLAG = True

@@ -23,13 +23,11 @@ from inginious.grader import Grader
 fr = gettext.translation('base', localedir='locales', languages=['fr'])
 fr.install()
 _ = fr.gettext # french
-
 """
 
 _ = gettext.gettext
 
 """
-
 This file contains a simple topology with two connected hosts via a router r
 
   h1 ---r--- h2
@@ -37,8 +35,6 @@ This file contains a simple topology with two connected hosts via a router r
 In this topology, h1, h2 and r have no IP address. You have to  give an IP address
 to each host interface and the router interfaces to make them communicate based 
 to subnet address p1 and p2, prefix length n and address family fa.
-
-
 """
         
 
@@ -86,7 +82,7 @@ class TwoPCLANWithRouter(IPTopo):
         print(state, file=open("state2.txt", "a"))
         print(feedback, file=open("feedback2.txt", "a"))
         
-        super(TwoPCLANWithRouter, self).post_build(net)
+        super(TwoPCLANWithRouter, self).pre_stop(net)
 
 
 ipmininet.DEBUG_FLAG = True

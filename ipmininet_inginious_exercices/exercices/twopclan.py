@@ -61,7 +61,7 @@ class TwoPCLAN(IPTopo):
         state, feedback = test.checksubnet_addr(self.family, self.subnet, self.prefixlen, hosts)
         print(state, file=open("state.txt", "w"))
         print(feedback, file=open("feedback.txt", "w"))
-        super(TwoPCLAN, self).post_build(net)
+        super(TwoPCLAN, self).pre_stop(net)
         
 
 ipmininet.DEBUG_FLAG = True

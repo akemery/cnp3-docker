@@ -1,0 +1,30 @@
+allow_registration: true
+allow_deletion: false
+backend: local
+backup_directory: /var/www/html/inginious_bkp
+local-config:
+    debug_host: localhost
+    tmp_dir: /var/www/html/agent_tmp
+mongo_opt:
+    database: INGInious
+    host: localhost
+plugins: []
+superadmins:
+- eka
+tasks_directory: /var/www/html/inginious_courses
+use_minified_js: true
+webterm: "localhost"
+webdav_host: "localhost"
+log_level: INFO
+session_parameters:
+    timeout: 86400  # 24 * 60 * 60, # 24 hours in seconds
+    ignore_change_ip: False # change this to True if you want user to keep their session if they change their IP
+    secure: False # change this to True if you only use https
+    secret_key: "274ed8f70ee0319b54ee2864a2457becffb6b27f0833f2c95442d1147335158a"
+smtp:
+    sendername: no-reply@inginious.uac.bj
+    host: smtp.uac.bj
+    port: 587
+    username: emery.assogba
+    password: 2009n@nti
+    starttls: true

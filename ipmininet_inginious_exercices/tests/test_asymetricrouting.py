@@ -21,7 +21,7 @@ def test_AsymetricRouting():
         net.start()
         
         net["A"].cmd("ip route add default via 192.168.1.1")
-        net["B"].cmd("ip route add default via 192.168.1.1")
+        net["B"].cmd("ip route add default via 192.168.2.1")
          
         net["R1"].cmd("ip route add 192.168.2.0/24 dev R1-eth1 via 192.168.3.2")
         net["R1"].cmd("ip route add 192.168.4.0/24 dev R1-eth1 via 192.168.3.2")

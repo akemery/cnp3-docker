@@ -83,6 +83,7 @@ def test_LANWith3Routers():
         itf10 = net["r3"].intf("r3-eth2")
         itf10.ip = "192.168.6.2/24"
         itf10.prefixLen == 24
+        
          
         net["r1"].cmd("ip route add 192.168.2.0/24 dev r1-eth1 via 192.168.4.2")
         net["r1"].cmd("ip route add 192.168.3.0/24 dev r1-eth2 via 192.168.6.2")
