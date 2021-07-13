@@ -1,0 +1,56 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- suite
+- difficile
+contact_url: ''
+context: |-
+    Pour les suites suivantes, déterminer si elles convergent (si oui, déterminer
+    la limite), si elles divergent vers :math:`+\infty` ou si elles divergent vers :math:`-\infty`.
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Suites - 13.9
+network_grading: false
+problems:
+    q1:
+        type: math
+        header: |-
+            Calculer la limite de
+
+            .. math::
+
+                s : \mathbb{N}_0 \to \mathbb{R} : n \mapsto -6-5\frac{n}{n+\sqrt{n^2+n}}
+
+            .. raw:: html
+
+                <script type="text/javascript" charset="UTF-8" src="//jsxgraph.org/distrib/jsxgraphcore.js"></script>
+                <link rel="stylesheet" type="text/css" href="//jsxgraph.org/distrib/jsxgraph.css" />
+        hints: |-
+            Quand :math:`n\to\infty`, :math:`\sqrt{n^2+n} \to n` car le monôme de plus grand degré du polynôme :math:`n^2+n` est :math:`n^2`.
+
+            Donc le deuxième terme tend vers :math:`-5\frac{n}{2n}`
+        name: ''
+        success_message: |-
+            .. raw:: html
+
+                <div id='jxgbox1' class='jxgbox mb-3' style='width:600px; height:400px;'></div>
+                    <script type='text/javascript'>
+                    var b = JXG.JSXGraph.initBoard('jxgbox1', {boundingbox: [-1, -7.5, 30, -9], axis: true});
+
+                    for (let n = 0; n < 50; n++) {
+                        b.create('point', [n, -6-5*n/(n+Math.sqrt(Math.pow(n,2)+n))], {size: 2});
+                    }
+                    b.create('functiongraph', [function(x){return -17/2;}, 0, 50], {dash: 2});
+                </script>
+        answers:
+        - -\frac{17}{2}
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

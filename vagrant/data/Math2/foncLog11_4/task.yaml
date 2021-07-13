@@ -1,0 +1,43 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- foncLog
+- moyen
+contact_url: ''
+context: En utilisant les propriétés des fonctions exponentielles et logarithmes,
+    résoudre l'équation suivante dans :math:`\mathbb{R}`.
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Fonctions logarithmes - 11.4
+network_grading: false
+problems:
+    q1:
+        type: math
+        header: |-
+            Entrer toutes les solutions de l'équation.
+            Si il n'y a pas de solutions, Entrer :math:`\emptyset`.
+
+            .. math::
+
+                \ln(x-2) - \ln(x-4) = - \ln(2)
+        hints: |-
+            Rappels:
+
+            .. math::
+
+                \log_a(b) - \log_a(c) = \log_a\left(\frac{b}{c}\right) \\
+                c\log_a(b) = \log_a(b^c) \\
+                a^{log_a(x)} = x
+        name: Equation
+        answers:
+        - '0'
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

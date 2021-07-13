@@ -1,0 +1,41 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- expLog
+- moyen
+contact_url: ''
+context: Intégrale définie
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Fonctions exponentielles - 9.3
+network_grading: false
+problems:
+    q1:
+        type: math
+        header: |-
+            Calculer l'intégrale définie de la fonction intégrable suivante
+
+            .. math::
+                \int_{-1}^{0} x^2e^{x^3} \, \mathrm{d}x
+        hints: |-
+            Utiliser la méthode de substitution en prenant
+
+            .. math::
+
+                u(x) = x^3\\
+                \frac{\mathrm{d}u}{\mathrm{d}x} = 3x^2 \Leftrightarrow \mathrm{d}u = 3x^2\mathrm{d}x
+
+            **Attention:** ne pas oublier de changer les bornes par :math:`u(a)` et :math:`u(b)`
+        name: ''
+        answers:
+        - \frac{e-1}{3e}
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

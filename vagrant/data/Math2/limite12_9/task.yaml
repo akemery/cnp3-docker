@@ -1,0 +1,57 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- limite
+- moyen
+contact_url: ''
+context: |-
+    Voici le graphe de la fonction :math:`f(x)`
+
+    .. raw:: html
+
+        <script type="text/javascript" charset="UTF-8" src="//jsxgraph.org/distrib/jsxgraphcore.js"></script>
+        <link rel="stylesheet" type="text/css" href="//jsxgraph.org/distrib/jsxgraph.css" />
+
+    .. raw:: html
+
+        <div id='jxgbox1' class='jxgbox mb-3' style='width:600px; height:375px;'></div>
+            <script type='text/javascript'>
+            var b = JXG.JSXGraph.initBoard('jxgbox1', {boundingbox: [-4, 3, 4, -2], axis: true});
+            b.create('functiongraph', [function(x){return -1;},-4,1.95]);
+            b.create('functiongraph', [function(x){return 2;}, 2.05,4]);
+            b.create('circle', [[2,2], 0.06], {strokeWidth:1});
+            b.create('circle', [[2,-1], 0.06], {strokeWidth:1});
+            b.create('circle', [[2,1], 0.03], {strokeWidth:4});
+        </script>
+
+    Déterminer si la limite suivante existe.
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Limites - 12.9
+network_grading: false
+problems:
+    q1:
+        type: math
+        header: |-
+            Calculer
+
+            .. math::
+
+                \lim_{x\to2} f(x)
+
+            Si la limite n'existe pas, entrer :math:`\emptyset`
+        hints: Si en un point la limite à gauche est différente de la limite à droite
+            alors la limite n'existe pas en ce point.
+        name: ''
+        answers:
+        - \varnothing
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

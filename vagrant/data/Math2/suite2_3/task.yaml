@@ -1,0 +1,60 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- suite
+- facile
+contact_url: ''
+context: Suite arithmétique
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Suites - 2.3
+network_grading: false
+problems:
+    q1:
+        type: math
+        header: |-
+            Calculer la raison d'une suite telle que
+
+            .. math::
+
+                \left\{\begin{array}{c}
+                    s_0 = -\frac{1}{2}\\
+                    s_{n+1} = s_n + \frac{3}{2}
+                \end{array}\right.
+        hints: La raison est la différence commune entre chaques termes consécutifs
+            d'une suite arithmétique.
+        name: ''
+        answers:
+        - \frac{3}{2}
+    q2:
+        name: ''
+        answers:
+        - \frac{59}{2}
+        hints: |-
+            Pour trouver le terme de rang :math:`n` d'une suite arithmétique on calcule
+
+            .. math::
+
+                s_n = s_0 + nr
+
+            où :math:`r` est la raison de la suite arithmétique.
+        header: |-
+            Calculer le terme d'ordre 20 d'une suite telle que
+
+            .. math::
+
+                \left\{\begin{array}{c}
+                    s_0 = -\frac{1}{2}\\
+                    s_{n+1} = s_n + \frac{3}{2}
+                \end{array}\right.
+        type: math
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

@@ -1,0 +1,36 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- suite
+- moyen
+contact_url: ''
+context: Somme de suites
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Suites - 10.4
+network_grading: false
+problems:
+    q1:
+        type: math
+        header: Calculer la somme des 102 premiers termes d'une suite arithmétique
+            de terme initial :math:`a=-1` et de raison :math:`r = \sqrt{2}`.
+        hints: |-
+            Pour résoudre cet exercice il faut utiliser la formule de somme des :math:`n` premiers termes d'une suite arithmétique
+
+            .. math::
+
+                \sum_{k=0}^{n-1} s_k = n \frac{s_0+s_n}{2}
+        tolerance: 1.0
+        name: ''
+        answers:
+        - 51\left(101\sqrt{2}-2\right)
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

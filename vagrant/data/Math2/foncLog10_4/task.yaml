@@ -1,0 +1,39 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- foncLog
+- moyen
+contact_url: ''
+context: Intégrale définie
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Fonctions logarithmes - 10.4
+network_grading: false
+problems:
+    q1:
+        type: math
+        header: |-
+            Calculer la valeur de l'intégrale définie suivante.
+
+            .. math::
+
+                \int_{\frac{1}{e}}^e x\ln(x) \mathrm{d}x
+        hints: |-
+            Pour résoudre cet exercice il faut appliquer l'intégration par partie en prenant :math:`f(x) = \ln(x)` et :math:`g'(x) = x`
+
+            .. math::
+
+                \int f(x)g'(x) = f(x)g(x) - \int f'(x)g(x)
+        name: Intégrale
+        answers:
+        - \frac{3+e^4}{4e^2}
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

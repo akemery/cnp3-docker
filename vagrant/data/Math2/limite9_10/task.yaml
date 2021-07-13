@@ -1,0 +1,55 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- limite
+- difficile
+contact_url: ''
+context: |-
+    En utilisant les propriétés des limites et des divergences, déterminer les
+    limites ou les divergences suivantes.
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Limites - 9.10
+network_grading: false
+problems:
+    q1:
+        type: math
+        header: |-
+            Calculer
+
+            .. math::
+
+                \lim_{x \to 4} \frac{\sqrt{x}-2}{x-4}
+
+            .. raw:: html
+
+                <script type="text/javascript" charset="UTF-8" src="//jsxgraph.org/distrib/jsxgraphcore.js"></script>
+                <link rel="stylesheet" type="text/css" href="//jsxgraph.org/distrib/jsxgraph.css" />
+        hints: |-
+            Pour résoudre cet exercice il vous faut factoriser le dénominateur, rappelez-vous des produits remarquables
+
+            .. math::
+
+                (a-b)(a+b) = a^2-b^2
+        name: ''
+        success_message: |-
+            .. raw:: html
+
+                <div id='jxgbox1' class='jxgbox mb-3' style='width:600px; height:600px;'></div>
+                    <script type='text/javascript'>
+                    var b = JXG.JSXGraph.initBoard('jxgbox1', {boundingbox: [-0.5, 1, 5, -0.5], axis: true});
+                    b.create('functiongraph', [function(x){return (Math.sqrt(x)-2)/(x-4);},-0.5,9.5]);
+                    b.create('point', [4,1/4], {name:"limite"})
+                </script>
+        answers:
+        - \frac{1}{4}
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

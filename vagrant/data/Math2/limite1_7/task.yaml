@@ -1,0 +1,51 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- limite
+- difficile
+contact_url: ''
+context: La limite suivante existe.
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Limites - 1.7
+network_grading: false
+problems:
+    q1:
+        type: math
+        header: |-
+            Calculer cette limite.
+
+            .. math::
+
+                \lim_{x\to -2} (\frac{x-1}{x+2} + \frac{3x-6}{x^2-4})
+
+            .. raw:: html
+
+                <script type="text/javascript" charset="UTF-8" src="//jsxgraph.org/distrib/jsxgraphcore.js"></script>
+                <link rel="stylesheet" type="text/css" href="//jsxgraph.org/distrib/jsxgraph.css" />
+        hints: |-
+            Pour résoudre cet exercice, il faut mettre les deux fractions au même dénominateur pour n'en avoir plus qu'une.
+
+            Lorsque la limite tend vers un quotient :math:`\frac{0}{0}` il faut factoriser le numérateur et le dénominateur pour pouvoir enlever l'indétermination.
+        name: Limite
+        success_message: |-
+            .. raw:: html
+
+                <div id='jxgbox1' class='jxgbox mb-3' style='width:600px; height:400px;'></div>
+                    <script type='text/javascript'>
+                    var b = JXG.JSXGraph.initBoard('jxgbox1', {boundingbox: [-4, 3, 4, -2], axis: true});
+                    b.create('functiongraph', [function(x){return (x-1)/(x+2)+(3*x-6)/(x*x-4);},-6,6]);
+                    b.create('point', [2,1], {name:"limite"})
+                </script>
+        answers:
+        - '1'
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

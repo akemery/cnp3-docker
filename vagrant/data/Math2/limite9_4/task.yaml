@@ -1,0 +1,56 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- limite
+- moyen
+contact_url: ''
+context: |-
+    En utilisant les propriétés des limites et des divergences, déterminer les
+    limites ou les divergences suivantes.
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Limites - 9.4
+network_grading: false
+problems:
+    q1:
+        type: math
+        header: |
+            Calculer
+
+            .. math::
+
+                \lim_{x \to -\infty} (-x^4+x^2)
+
+            .. raw:: html
+
+                <script type="text/javascript" charset="UTF-8" src="//jsxgraph.org/distrib/jsxgraphcore.js"></script>
+                <link rel="stylesheet" type="text/css" href="//jsxgraph.org/distrib/jsxgraph.css" />
+        hints: |-
+            Lorsqu'un polynôme tend vers l'infini, on peut le remplacer par le monôme de plus grand degré.
+
+            par exemple:
+
+            .. math::
+
+                \lim_{x\to\infty} (3x^2-2x+6) = \lim_{x\to\infty} 3x^2 = +\infty
+        name: ''
+        success_message: |-
+            .. raw:: html
+
+                <div id='jxgbox1' class='jxgbox mb-3' style='width:600px; height:600px;'></div>
+                    <script type='text/javascript'>
+                    var b = JXG.JSXGraph.initBoard('jxgbox1', {boundingbox: [-4, 1, 0.2, -50], axis: true});
+                    b.create('functiongraph', [function(x){return -1*Math.pow(x,4)+Math.pow(x,2);},-4,1]);
+                </script>
+        answers:
+        - -\infty
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

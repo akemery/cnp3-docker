@@ -1,0 +1,41 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- expLog
+- facile
+contact_url: ''
+context: Donner le domaine de définition pour la fonction dont l'expression est la
+    suivante
+environment_id: databases
+environment_parameters:
+    limits:
+        hard_time: ''
+        memory: '100'
+        time: '30'
+    run_cmd: ''
+environment_type: docker
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Fonctions exponentielles - 2.1
+network_grading: false
+problems:
+    q1:
+        type: code_single_line
+        header: |-
+            Entrer le domaine de définition réel de :math:`f(x) = 4^{x^2-1}` en suivant ces règles:
+
+              - Utiliser la lettre U pour l'union
+              - Utiliser les symboles [ et ] pour les intervalles compris et non compris
+              - Utiliser les symboles { et } pour les ensembles et singletons
+              - Exclure des points avec \\{...}
+              - Utiliser le symbole 'inf' et '-inf' pour + et - l'infinie
+              - Utiliser la lettre R pour l'ensemble des réels
+        name: ''
+        default: ''
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

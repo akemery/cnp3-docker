@@ -1,0 +1,81 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- prob
+- difficile
+- expLog
+- random
+contact_url: ''
+context: Demi-vie du plutonium 239.
+environment_id: math
+environment_parameters:
+    limits:
+        hard_time: ''
+        memory: '100'
+        time: '30'
+    run_cmd: ''
+environment_type: docker
+evaluate: best
+file: ''
+groups: false
+input_random: '1'
+name: Applications - 2.2
+network_grading: false
+problems:
+    q1:
+        type: math
+        header: |-
+            .. raw:: html
+
+                Combien de temps faudra-t-il attendre pour que l'activité d'une quantité de
+                <b><span id="p1"></span></b>kg de plutonium 239 dont la demi-vie est de 24130 ans soit égale à 400Bq/m³ ? Entrer votre réponse en année comme un nombre entier, arrondisser vers le haut si nécessaire.
+
+            .. raw:: html
+
+                <script>
+                    var masse = 10*parseInt(input["@random"][0]*20+10);
+                    document.getElementById("p1").innerHTML = masse;
+                </script>
+
+            .. raw:: html
+
+                <script type="text/javascript" charset="UTF-8" src="//jsxgraph.org/distrib/jsxgraphcore.js"></script>
+                <link rel="stylesheet" type="text/css" href="//jsxgraph.org/distrib/jsxgraph.css" />
+        hints: |-
+            .. raw:: html
+
+                Pour résoudre cet exercice il faut d'abord trouver à quel niveau de radiation correspond <b><span id="p1"></span></b>kg de plutonium 239 grâce à la formule
+
+            .. raw:: html
+
+                <script>
+                    var masse = 10*parseInt(input["@random"][0]*20+10);
+                    document.getElementById("p1").innerHTML = masse;
+                </script>
+
+            .. math::
+
+                A = \frac{m}{M}N_A\frac{\ln(2)}{t_{\frac{1}{2}}}
+
+            où :math:`m` est la masse de plutonium en gramme, :math:`M` la masse molaire du plutonium 239 en gramme par mole, :math:`N_A` le nombre d'Avogadro, :math:`t_{\frac{1}{2}}` sa demi-vie en seconde.
+
+            Le niveau de radiation en fonction du temps varie en suivant une exponentielle de base 1/2 exposant :math:`x` sur la demi-vie, multipliée par le niveau initial.
+
+            .. math::
+
+                f(t) = f_i \left(\frac{1}{2}\right)^{\frac{t}{t_{1/2}}}
+
+            Une fois cette fonction trouvée il faut l'égaler au niveau qu'on veut atteindre et résoudre l'équation pour trouver :math:`t`.
+
+            Rappel:
+
+            .. math::
+
+                \log_a(b) = \frac{\log_{10}(b)}{\log_{10}(a)} = \frac{\ln(b)}{\ln(a)}
+        name: ''
+regenerate_input_random: 'on'
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

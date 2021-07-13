@@ -1,0 +1,78 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- prob
+- suite
+- moyen
+- random
+contact_url: ''
+context: |-
+    .. raw:: html
+
+        Pour un travail de barman, on me propose deux systèmes de rémunération
+        différents. Le premier, très classique, consiste à me verser tous les mois <b><span id="p1"></span></b> euro. Le deuxième, inventé avec l'idée de ne pas avoir à payer trop d'argent aux nouveaux
+        venus qui ne seraient pas compétents, consiste à me verser <b><span id="p2"></span></b> euro le premier mois, puis un peu plus chaque mois : mon salaire augmenterait de <b><span id="p3"></span></b>% chaque mois.
+        Compte tenu du fait que je suis un excellent barman et que je compte travailler dans cet
+        établissement pendant <b><span id="p4"></span></b> ans, quel est le système le plus avantageux en ce qui me concerne ?
+
+    .. raw:: html
+
+        <script>
+            var salFixe = 100*parseInt(input["@random"][0]*8+8);
+            var salVar = 100*parseInt(input["@random"][1]*7+6);
+            var pourc = parseInt(input["@random"][2]*16+15)/10;
+            var duree = parseInt(input["@random"][3]*3+2);
+            document.getElementById("p1").innerHTML = salFixe;
+            document.getElementById("p2").innerHTML = salVar;
+            document.getElementById("p3").innerHTML = pourc;
+            document.getElementById("p4").innerHTML = duree;
+        </script>
+environment_id: math
+environment_parameters:
+    limits:
+        hard_time: ''
+        memory: '100'
+        time: '30'
+    run_cmd: ''
+environment_type: docker
+evaluate: best
+file: ''
+groups: false
+input_random: '4'
+name: Suites - 11
+network_grading: false
+problems:
+    q1:
+        type: math
+        header: |-
+            Combien d'argent vais-je gagner si je choisis le premier système de rémunération ?
+
+            .. raw:: html
+
+                <script type="text/javascript" charset="UTF-8" src="//jsxgraph.org/distrib/jsxgraphcore.js"></script>
+                <link rel="stylesheet" type="text/css" href="//jsxgraph.org/distrib/jsxgraph.css" />
+        hints: ''
+        name: ''
+    q2:
+        name: ''
+        hints: |-
+            Le salaire mensuel évolue comme une suite géométrique de raison 1,02. Après 2 ans on aura donc gagner la somme des 24 premiers termes de cette suite.
+
+            .. math::
+
+                s(n) = s_0 (1,02)^n
+
+            On sait que la somme des :math:`n` premiers termes d'une suite géométrique vaut
+
+            .. math::
+
+                \sum_{k=0}^{n-1} s_n = s_0 \frac{1-q^n}{1-q}
+        header: Combien d'argent vais-je gagner si je choisis le deuxième système
+            de rémunération ? Entrer votre réponse avec au moins 5 chiffres significatifs.
+        type: math
+regenerate_input_random: 'on'
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

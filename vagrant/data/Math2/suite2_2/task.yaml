@@ -1,0 +1,46 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- suite
+- facile
+contact_url: ''
+context: Suite arithmétique
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Suites - 2.2
+network_grading: false
+problems:
+    q1:
+        type: math
+        header: Calculer la raison d'une suite arithmétique dont le premier terme
+            :math:`s_0=2` et dont le second terme :math:`s_1=5`.
+        hints: La raison est la différence commune entre chaques termes consécutifs
+            d'une suite arithmétique.
+        name: ''
+        answers:
+        - '3'
+    q2:
+        name: ''
+        answers:
+        - '62'
+        hints: |-
+            Pour trouver le terme de rang :math:`n` d'une suite arithmétique on calcule
+
+            .. math::
+
+                s_n = s_0 + nr
+
+            où :math:`r` est la raison de la suite arithmétique.
+        header: Calculer le terme de rang 20 d'une suite arithmétique dont le premier
+            terme :math:`s_0=2` et dont le second terme :math:`s_1=5`.
+        type: math
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

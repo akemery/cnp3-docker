@@ -1,0 +1,47 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- expLog
+- difficile
+contact_url: ''
+context: Intégrale définie
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Fonctions exponentielles - 9.7
+network_grading: false
+problems:
+    q1:
+        type: math
+        header: |-
+            Calculer l'intégrale définie de la fonction intégrable suivante
+
+            .. math::
+                \int_{0}^{1} \cos(e^x)e^x \, \mathrm{d}x
+        hints: |-
+            Pour résoudre cette intégrale il faut faire une substitution
+
+            .. math::
+
+                u(x) = e^x\\
+                \frac{\mathrm{d}u}{\mathrm{d}x} = e^x \Leftrightarrow \mathrm{d}u = e^x\mathrm{d}x
+
+            **Attention:** ne pas oublier de changer les bornes par :math:`u(a)` et :math:`u(b)`
+
+            Rappel:
+
+            .. math::
+
+                (sin(x))' = cos(x)
+        name: ''
+        answers:
+        - \sin\left(e\right)-\sin\left(1\right)
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

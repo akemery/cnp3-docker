@@ -1,0 +1,67 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- suite
+- moyen
+contact_url: ''
+context: Suites géométriques
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Suites - 5.4
+network_grading: false
+problems:
+    q1:
+        type: math
+        header: |-
+            Soit :math:`(s_n)_{n\in\mathbb{N}}` une suite géométrique telle que
+
+            .. math::
+
+                s_n = (\frac{1}{5})^n
+
+            Calculer la raison :math:`q`.
+        hints: |-
+            La raison :math:`q` d'une suite géométrique est le rapport entre 2 termes consécutifs de la suite.
+
+            Remplacer :math:`n` par 0 et par 1 pour avoir 2 termes consécutifs de la suite.
+        name: ''
+        answers:
+        - \frac{1}{5}
+    q2:
+        name: ''
+        answers:
+        - '1'
+        hints: Remplacer :math:`n` par 0.
+        header: |-
+            Soit :math:`(s_n)_{n\in \mathbb{N}}` une suite géométrique telle que
+
+            .. math::
+
+                s_n = (\frac{1}{5})^n
+
+            Calculer le premier terme.
+        type: math
+    q3:
+        header: |-
+            Soit :math:`(s_n)_{n\in \mathbb{N}}` une suite géométrique telle que
+
+            .. math::
+
+                s_n = (\frac{1}{5})^n
+
+            Calculer le terme d'ordre 6.
+        answers:
+        - \frac{1}{15625}
+        type: math
+        hints: Remplacer :math:`n` par 6.
+        name: ''
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

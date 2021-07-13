@@ -1,0 +1,39 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- foncReci
+- moyen
+contact_url: ''
+context: En utilisant l'injectivité des fonctions exponentielles, résoudre cette équation
+    dans :math:`\mathbb{R}`.
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Fonctions réciproques - 2.2
+network_grading: false
+problems:
+    q1:
+        type: math
+        header: |-
+            Résoudre l'équation.
+
+            .. math::
+                (\frac{1}{4})^{\frac{x}{3}+1} = 1
+        hints: |-
+            Rappel:
+
+            .. math::
+
+                a^x = 1 \quad\mathrm{ssi}\quad x = 0
+        name: Equation
+        answers:
+        - '-3'
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

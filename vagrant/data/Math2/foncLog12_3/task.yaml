@@ -1,0 +1,41 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- foncLog
+- moyen
+contact_url: ''
+context: |-
+    Donner le domaine de définition réel maximal pour la fonction dont
+    l'expression est la suivante.
+environment_id: databases
+environment_parameters:
+    limits:
+        hard_time: ''
+        memory: '100'
+        time: '30'
+    run_cmd: ''
+environment_type: docker
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Fonctions logarithmes - 12.3
+network_grading: false
+problems:
+    q1:
+        type: code_single_line
+        header: |-
+            Calculer le domaine de définition de
+
+            .. math::
+
+                f(x) = \log_3(\frac{1}{x-1}) + \log_3(x^2-5x+6)
+
+            Entrer 'inf' pour l'infini
+        name: ''
+        default: ''
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

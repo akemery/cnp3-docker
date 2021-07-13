@@ -1,0 +1,50 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- foncLog
+- moyen
+contact_url: ''
+context: En utilisant les propriétés des fonctions exponentielles et logarithmes,
+    résoudre l'équation suivante dans :math:`\mathbb{R}`.
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Fonctions logarithmes - 11.5
+network_grading: false
+problems:
+    q1:
+        type: math
+        header: |-
+            Entrer toutes les solutions de l'équation.
+            Si il n'y a pas de solutions, Entrer :math:`\emptyset`.
+
+            .. math::
+
+                \ln(x)+1=\frac{1}{\ln(x)}
+        hints: |-
+            Pour résoudre cet exercice substituer d'abord :math:`y = \ln(x)` dans
+
+            .. math::
+
+                \ln(x)+1=\frac{1}{\ln(x)} \leftrightarrow y+1=\frac{1}{y}
+
+            Ensuite il faudra résoudre l'équation en :math:`y` puis résoudre les équations
+
+            .. math::
+
+                y_i = \ln(x)
+
+            en remplaçant :math:`y_i` par les solutions trouvées dans la première équation.
+        answers:
+        - e^{\frac{-1-\sqrt{5}}{2}}
+        - e^{\frac{-1+\sqrt{5}}{2}}
+        name: Equation
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

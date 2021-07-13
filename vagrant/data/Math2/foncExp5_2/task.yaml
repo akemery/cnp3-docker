@@ -1,0 +1,34 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- expLog
+- moyen
+contact_url: ''
+context: Calculer la dérivée de la fonction dérivable suivante.
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Fonctions exponentielles - 5.2
+network_grading: false
+problems:
+    q1:
+        type: math
+        header: Calculer la dérivée de :math:`f(x) = e^x.x^3`
+        hints: |-
+            Il s'agit de la dérivée d'un produit, :math:`f(x)=u(x).v(x)`
+
+            .. math::
+
+                f'(x) = u'(x).v(x) + u(x).v'(x)
+        name: ''
+        answers:
+        - e^x\left(x^3+3x^2\right)
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

@@ -1,0 +1,28 @@
+accessible: false
+name: pratiquesinginious
+description: ''
+admins:
+- akemery
+tutors: []
+groups_student_choice: false
+allow_unregister: true
+allow_preview: false
+registration: true
+registration_password: null
+registration_ac: null
+registration_ac_list:
+- '      '
+is_lti: false
+lti_url: ''
+lti_keys: {}
+lti_send_back_grade: false
+task_dispenser: toc
+dispenser_data:
+-   config:
+        closed: false
+    id: tasks-list
+    rank: 0
+    tasks_list:
+        exercicegit: 1
+        runexample: 0
+    title: Liste des exercices

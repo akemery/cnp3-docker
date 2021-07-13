@@ -1,0 +1,54 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- limite
+- facile
+contact_url: ''
+context: |-
+    En utilisant les propriétés des limites et des divergences, déterminer les
+    limites ou les divergences suivantes.
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Limites - 9.2
+network_grading: false
+problems:
+    q1:
+        type: math
+        header: |-
+            Calculer
+
+            .. math::
+
+                \lim_{x \to +\infty} (1 + \frac{2}{x^3} - x^3)
+
+            .. raw:: html
+
+                <script type="text/javascript" charset="UTF-8" src="//jsxgraph.org/distrib/jsxgraphcore.js"></script>
+                <link rel="stylesheet" type="text/css" href="//jsxgraph.org/distrib/jsxgraph.css" />
+        hints: |-
+            La limite d'une somme de fonctions est égale à la somme des limites des fonctions.
+
+            .. math::
+
+                \lim_{x\to+\infty} (f(x)+g(x)) = \lim_{x\to+\infty} f(x) + \lim_{x\to+\infty} g(x)
+        name: ''
+        success_message: |-
+            .. raw:: html
+
+                <div id='jxgbox1' class='jxgbox mb-3' style='width:600px; height:600px;'></div>
+                    <script type='text/javascript'>
+                    var b = JXG.JSXGraph.initBoard('jxgbox1', {boundingbox: [-0.5, 0.5, 4, -20], axis: true});
+                    b.create('functiongraph', [function(x){return 1+2/(x*x*x)-x*x*x;},-0.5,9.5]);
+                </script>
+        answers:
+        - -\infty
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

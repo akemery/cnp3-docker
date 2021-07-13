@@ -1,0 +1,65 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- limite
+- moyen
+contact_url: ''
+context: |-
+    Déterminer si les fonctions convergent ou divergent à droite ou à gauche
+    au point considéré. Si elles convergent à droite ou à gauche, donner la limite à droite ou à gauche. Si elles divergent à droite ou à gauche, donner le type de divergence (vers :math:`+\infty` ou
+    vers :math:`+\infty`). N'hésitez pas à vous aider d'un graphe.
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Limites - 5.4
+network_grading: false
+problems:
+    q1:
+        type: math
+        header: |-
+            Que vaut
+
+            .. math::
+
+                \lim_{x \to \frac{1}{2}^-} \frac{4x-2}{2x^2+5x-3}
+
+            .. raw:: html
+
+                <script type="text/javascript" charset="UTF-8" src="//jsxgraph.org/distrib/jsxgraphcore.js"></script>
+                <link rel="stylesheet" type="text/css" href="//jsxgraph.org/distrib/jsxgraph.css" />
+        hints: Lorsque la limite tend vers un quotient :math:`\frac{0}{0}` il faut
+            factoriser le numérateur et le dénominateur pour pouvoir enlever l'indétermination.
+        name: ''
+        success_message: |-
+            .. raw:: html
+
+                <div id='jxgbox1' class='jxgbox mb-3' style='width:600px; height:400px;'></div>
+                    <script type='text/javascript'>
+                    var b = JXG.JSXGraph.initBoard('jxgbox1', {boundingbox: [-6, 4, 6, -4], axis: true});
+                    b.create('functiongraph', [function(x){return (4*x-2)/(2*Math.pow(x,2)+5*x-3);},-6,6]);
+                    b.create('point', [1/2, 4/7], {name:'limite'})
+                </script>
+        answers:
+        - \frac{4}{7}
+    q2:
+        name: ''
+        answers:
+        - \frac{4}{7}
+        hints: Lorsque la limite tend vers un quotient :math:`\frac{0}{0}` il faut
+            factoriser le numérateur et le dénominateur pour pouvoir enlever l'indétermination.
+        header: |-
+            Que vaut
+
+            .. math::
+
+                \lim_{x \to \frac{1}{2}^+} \frac{4x-2}{2x^2+5x-3}
+        type: math
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

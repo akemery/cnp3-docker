@@ -1,0 +1,42 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- foncReci
+- moyen
+contact_url: ''
+context: En utilisant l'injectivité des fonctions exponentielles, résoudre cette équation
+    dans :math:`\mathbb{R}`.
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Fonctions réciproques - 2.8
+network_grading: false
+problems:
+    q1:
+        type: math
+        header: |-
+            Résoudre l'équation.
+
+            .. math::
+                \frac{ (\pi^{ \frac{x^3}{2} + \frac{x^2}{2} })^2 }{ \pi^{x^3 + x + 1} } = \pi
+        hints: |-
+            Rappels:
+
+            .. math::
+
+                a^ba^c = a^{b+c} \\
+                (a^b)^c = a^{bc} \\
+                \log_a(a^x) = x
+        answers:
+        - '2'
+        - '-1'
+        name: Equation
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

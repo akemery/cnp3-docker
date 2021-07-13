@@ -1,0 +1,67 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- limite
+- prob
+- moyen
+- random
+contact_url: ''
+context: |-
+    .. raw:: html
+
+        Un avion a une panne de moteur en plein vol à une altitude de <b><span id="par1"></span></b> km et
+        menace de s'écraser. Le pilote va essayer de faire planer l'avion jusqu'au prochain aréoport,
+        mais il craint que l'avion perde trop d'altitude en planant.
+        Il se souvient de ses cours d'aviation que dans ce genre de situation, l'avion perd d'abord
+        rapidement beaucoup d'altitude mais se stabilise peu à peu. Il se souvient que dans ce genre
+        de situation, l'altitude de l'avion après t heures est de
+
+    .. raw:: html
+
+        <script>
+            var par1 = parseInt(input["@random"][0]*20+1);
+            document.getElementById("par1").innerHTML = par1;
+        </script>
+
+    .. math::
+
+        A-A\frac{t}{2(t+1)}
+environment_id: math
+environment_parameters:
+    limits:
+        hard_time: ''
+        memory: '100'
+        time: '30'
+    run_cmd: ''
+environment_type: docker
+evaluate: best
+file: ''
+groups: false
+input_random: '1'
+name: Limites - 8.2
+network_grading: false
+problems:
+    q1:
+        type: math
+        header: |-
+            De quelle altitude se rapproche de l'avion au fur et à mesure que le temps passe ? Donner votre réponse en kilomètres.
+
+            .. raw:: html
+
+                <script type="text/javascript" charset="UTF-8" src="//jsxgraph.org/distrib/jsxgraphcore.js"></script>
+                <link rel="stylesheet" type="text/css" href="//jsxgraph.org/distrib/jsxgraph.css" />
+        hints: |-
+            Lorsqu'un quotient de polynômes tend vers l'infini, on peut le remplacer par le quotient des monôme de plus grand degré au numérateur et au dénominateur.
+
+            par exemple:
+
+            .. math::
+
+                \lim_{x\to\infty} \frac{3x^2-2x+6}{12x^2+5x} = \lim_{x\to\infty} \frac{3x^2}{12x^2} = \lim_{x\to\infty} \frac{3}{12} = \frac{1}{4}
+        name: ''
+regenerate_input_random: 'on'
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

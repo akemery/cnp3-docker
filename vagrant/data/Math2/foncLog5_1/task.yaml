@@ -1,0 +1,45 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- foncLog
+- facile
+contact_url: ''
+context: Calculer la dérivée de la fonction dérivable suivante.
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Fonctions logarithmes - 5.1
+network_grading: false
+problems:
+    q1:
+        type: math
+        header: |-
+            Entrer la fonction dérivée de
+
+            .. math::
+
+                f : \mathbb{R}_0^+ \to \mathbb{R} : x \mapsto \ln(x) + ex
+        hints: |-
+            Il s'agit de la dérivée d'une somme, :math:`f(x) = a(x) + b(x)`
+
+            .. math::
+
+                f'(x) = (a(x) + b(x))' = a'(x) + b'(x)
+
+            Rappel:
+
+            .. math::
+
+                \ln'(x) = \frac{1}{x}
+        name: Dérivée
+        answers:
+        - \frac{1}{x}+e
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

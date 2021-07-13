@@ -1,0 +1,56 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- limite
+- difficile
+contact_url: ''
+context: |-
+    Déterminer si la fonction converge ou diverge au point considéré. Si
+    elle converge, calculer la limite. Si elle diverge, donner le type de divergence (vers :math:`+\infty` ou vers :math:`-\infty`).
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Limites - 3.7
+network_grading: false
+problems:
+    q1:
+        type: math
+        header: |-
+            .. math::
+
+                \lim_{x \to -1} \frac{x-1}{x^3+x^2-x-1}
+
+            Si elle converge, donner sa limite. Si elle diverge, entrer :math:`-\infty`
+            ou :math:`+\infty`. Et si elle ne diverge pas et ne converge pas, entrer
+            :math:`\emptyset`.
+
+            .. raw:: html
+
+                <script type="text/javascript" charset="UTF-8" src="//jsxgraph.org/distrib/jsxgraphcore.js"></script>
+                <link rel="stylesheet" type="text/css" href="//jsxgraph.org/distrib/jsxgraph.css" />
+        hints: |-
+            Lorsque une limite tend vers un dénominateur nul (exemple: :math:`\frac{2}{0}`) il faut déterminer si elle tend vers :math:`+\infty` ou :math:`-\infty` en déterminant le signe du dénominateur.
+
+            Ça peut être utile de tracer le graphe du dénominateur.
+
+            Si le signe à gauche et à droite du dénominateur sont différents alors la limite n'existe pas sinon elle existe.
+        name: Limite
+        success_message: |-
+            .. raw:: html
+
+                <div id='jxgbox1' class='jxgbox mb-3' style='width:600px; height:400px;'></div>
+                    <script type='text/javascript'>
+                    var b = JXG.JSXGraph.initBoard('jxgbox1', {boundingbox: [-6, 7, 6, -1], axis: true});
+                    b.create('functiongraph', [function(x){return (x-1)/(Math.pow(x,3)+Math.pow(x,2)-x-1);},-6,6]);
+                </script>
+        answers:
+        - +\infty
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

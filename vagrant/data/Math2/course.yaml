@@ -1,0 +1,80 @@
+accessible: false
+name: Math2
+description: Ces exercices sont tirés du syllabus écrit par Maxime Parmentier.
+admins:
+- eka
+- akemery
+- dodo
+tutors: []
+groups_student_choice: false
+allow_unregister: false
+allow_preview: false
+registration: false
+registration_password: null
+registration_ac: null
+registration_ac_list: []
+is_lti: false
+lti_url: ''
+lti_keys: {}
+lti_send_back_grade: false
+tags:
+    asymp:
+        description: ''
+        type: 2
+        name: Asymptotes
+        visible: true
+    cont:
+        name: Continuité
+        description: ''
+        type: 2
+        visible: true
+    difficile:
+        description: ''
+        name: 'Niveau: difficile'
+        visible: true
+        type: 2
+    expLog:
+        description: ''
+        type: 2
+        visible: true
+        name: Fonctions exponentielles
+    facile:
+        name: 'Niveau: facile'
+        visible: true
+        description: ''
+        type: 2
+    foncLog:
+        type: 2
+        name: Fonctions logarithmes
+        description: ''
+        visible: true
+    foncReci:
+        type: 2
+        visible: true
+        name: Fonctions réciproques
+        description: ''
+    limite:
+        description: ''
+        type: 2
+        name: Limites
+        visible: true
+    moyen:
+        name: 'Niveau: moyen'
+        type: 2
+        visible: true
+        description: ''
+    prob:
+        name: Problèmes
+        type: 2
+        description: ''
+        visible: true
+    random:
+        name: Random
+        type: 2
+        description: ''
+        visible: true
+    suite:
+        visible: true
+        name: Suites
+        type: 2
+        description: ''

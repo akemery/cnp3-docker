@@ -1,0 +1,58 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- foncReci
+- difficile
+contact_url: ''
+context: En utilisant l'injectivité des fonctions exponentielles, résoudre cette équation
+    dans :math:`\mathbb{R}`.
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Fonctions réciproques - 2.10
+network_grading: false
+problems:
+    q1:
+        type: math
+        header: |-
+            Résoudre l'équation.
+
+            .. math::
+                e^{2x+1} - e^{x+3} + e^2 = e^x
+        hints: |-
+            **Etape 1** Simplifier
+
+            Transformer cette expression en un polynôme en :math:`e^x`
+
+            Exemple:
+
+            .. math::
+
+                e^{2x+1} = e^{2x}.e = (e^x)^2.e
+
+            **Etape 2** Poser :math:`y`
+
+            On pose :math:`y = e^x` et on résous l'équation trouvée en :math:`y`
+
+            **Etape 3**
+
+            Finalement on trouve les réponses finales en résolvant les équations
+
+            .. math::
+
+                y_i = e^x
+
+            où :math:`y_i` sont les solutions trouvée à l'étape 2.
+        answers:
+        - '2'
+        - '-1'
+        name: Equation
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

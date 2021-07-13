@@ -1,0 +1,42 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- foncLog
+- moyen
+contact_url: ''
+context: Intégrale définie
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Fonctions logarithmes - 10.2
+network_grading: false
+problems:
+    q1:
+        type: math
+        header: |-
+            Calculer la valeur de l'intégrale définie suivante.
+
+            .. math::
+
+                \int_0^{\sqrt{e^2-1}} \frac{x}{x^2+1} \mathrm{d}x
+        hints: |-
+            Utiliser la méthode de substitution en prenant
+
+            .. math::
+
+                u(x) = x^2+1\\
+                \frac{\mathrm{d}u}{\mathrm{d}x} = 2x \Leftrightarrow \mathrm{d}u = 2x\mathrm{d}x
+
+            **Attention:** ne pas oublier de changer les bornes par :math:`u(a)` et :math:`u(b)`
+        name: Intégrale
+        answers:
+        - '1'
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

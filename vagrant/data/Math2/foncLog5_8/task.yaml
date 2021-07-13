@@ -1,0 +1,45 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- foncLog
+- difficile
+contact_url: ''
+context: Calculer la dérivée de la fonction dérivable suivante.
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Fonctions logarithmes - 5.8
+network_grading: false
+problems:
+    q1:
+        type: math
+        header: |-
+            Entrer la fonction dérivée de
+
+            .. math::
+
+                f : \mathbb{R}_0^+ \to \mathbb{R} : x \mapsto x^x
+        hints: |-
+            C'est un exercice plutot difficile, commencer par remplacer
+
+            .. math::
+
+                x^x = e^{\ln(x^x)} = e^{x\ln(x)}
+
+            Puis de là, on trouve la dérivée d'une composée et d'un produit, :math:`f(x) = g(h(x).k(x))`
+
+            .. math::
+
+                f'(x) = g'(h(x).k(x)).(h'(x).k(x)+h(x).k'(x))
+        name: Dérivée
+        answers:
+        - x^x(1+\ln(x))
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

@@ -1,0 +1,38 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- expLog
+- facile
+contact_url: ''
+context: |-
+    En utilisant les propriétés élémentaires des fonctions exponentielles, calculer
+    les nombres suivants sans avoir recours à une calculatrice.
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Fonctions exponentielles - 1.2
+network_grading: false
+problems:
+    q1:
+        hints: |-
+            Indice:
+
+            :math:`x^{a+b} = x^a x^b` et :math:`x^{-a} = \frac{1}{x^a}`
+        error_message: |-
+            Indice:
+
+            :math:`x^{a+b} = x^a x^b` et :math:`x^{-a} = \frac{1}{x^a}`
+        type: math
+        answers:
+        - '3'
+        name: ''
+        header: Calculer le nombre entier :math:`\frac{3^\pi}{3^{\pi-1}}`
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

@@ -1,0 +1,64 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- suite
+- facile
+contact_url: ''
+context: Suites géométriques
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Suites - 5.1
+network_grading: false
+problems:
+    q1:
+        type: math
+        header: |-
+            Soit :math:`(s_n)_{n\in\mathbb{N}}` une suite géométrique telle que
+
+            .. math::
+
+                \left\{\begin{array}{c}
+                    s_0 = 2\\
+                    s_1 = 6
+                \end{array}\right.
+
+            Calculer la raison :math:`q`.
+        hints: La raison :math:`q` d'une suite géométrique est le rapport entre 2
+            termes consécutifs de la suite.
+        name: ''
+        answers:
+        - '3'
+    q2:
+        name: ''
+        answers:
+        - '1458'
+        hints: |-
+            le terme d'ordre :math:`n` d'une suite géométrique vaut
+
+            .. math::
+
+                s_n = s_0 q^n
+
+            où :math:`q` est la raison
+        header: |-
+            Soit :math:`(s_n)_{n\in \mathbb{N}}` une suite géométrique telle que
+
+            .. math::
+
+                \left\{\begin{array}{c}
+                    s_0 = 2\\
+                    s_1 = 6
+                \end{array}\right.
+
+            Calculer le terme d'ordre 6.
+        type: math
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

@@ -1,0 +1,41 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- foncLog
+- moyen
+- prob
+contact_url: ''
+context: Magnitude de tremblements de terre
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Applications - 4.3
+network_grading: false
+problems:
+    q1:
+        type: math
+        header: |-
+            À quelle augmentation de puissance (énergie libérée) correspond une augmentation de 1 sur l'échelle de la magnitude du moment pour un tremblement de terre ?
+
+            rappel:
+
+            .. math::
+
+                M_w = \frac{2}{3}\log_{10}(M_0) - 6,07
+        hints: |-
+            De combien est multiplié :math:`M_0` si :math:`M_w` augmente de 1 ?
+
+            Isoler :math:`M_0` pour trouver la bonne réponse et remplacer :math:`M_0` par :math:`M_0 +1`.
+        tolerance: 0.1
+        name: ''
+        answers:
+        - \sqrt{1000}
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

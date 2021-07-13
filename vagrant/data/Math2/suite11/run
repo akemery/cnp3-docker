@@ -1,0 +1,79 @@
+#!/bin/python3
+# -*- coding: utf-8 -*-
+
+# Ce fichier doit être utilisé pour un exercice de type 'random'
+
+import re
+import math
+from sympy import sympify, simplify
+from sympy.parsing.latex import parse_latex
+from inginious import input, feedback, rst
+
+salFixe = 100*int(input.get_input("@random")[0]*8+8)
+salVar = 100*int(input.get_input("@random")[1]*7+6)
+pourc = int(input.get_input("@random")[2]*16+15)/10
+pourc = pourc/100
+duree = int(input.get_input("@random")[3]*3+2)
+
+correct1 = str(12*salFixe*duree)
+correct2 = str(salVar*(1-(1+pourc)**(12*duree))/(1-(1+pourc)))
+
+grade = 0
+
+def parse_equation(latex_str):
+    # The \left and \right prefix are not supported by sympy (and useless for treatment)
+    latex_str = re.sub("(\\\left|\\\\right)", "", latex_str)
+    return parse_latex(latex_str)
+
+def is_equal(eq1, eq2):
+    return simplify(eq1) == simplify(eq2) or simplify(sympify(str(eq1))) == simplify(sympify(str(eq2)))
+
+def diff_is_less(eq1, eq2, a):
+    return abs(simplify(eq1) - simplify(eq2)) < a or abs(simplify(sympify(str(eq1))) - simplify(sympify(str(eq2)))) < a
+
+try:
+    student_answer1 = parse_equation(str(input.get_input("q1")[0]))
+    correct_answer1 = parse_equation(correct1)
+    student_answer2 = parse_equation(str(input.get_input("q2")[0]))
+    correct_answer2 = parse_equation(correct2)
+except LaTeXParsingError as e:
+    feedback.set_global_result("failed")
+    feedback.set_global_feedback("parsing error")
+
+res1 = is_equal(student_answer1, correct_answer1)
+res2 = diff_is_less(student_answer2, correct_answer2, 1)
+
+if res1:
+    feedback.set_problem_result("success","q1")
+    feedback.set_problem_feedback("Bravo!","q1")
+    grade += 50
+else:
+    feedback.set_problem_result("failed","q1")
+    feedback.set_problem_feedback("Mauvaise réponse.","q1")
+
+if res2:
+    feedback.set_problem_result("success","q2")
+    feedback.set_problem_feedback("Bravo!","q2")
+    grade += 50
+else:
+    feedback.set_problem_result("failed","q2")
+    feedback.set_problem_feedback("Mauvaise réponse.","q2")
+
+
+feedback.set_grade(grade)
+if grade == 100:
+    feedback.set_global_result("success")
+    fun2 = "{}*(1-Math.pow({},x))/(1-{})".format(salVar,1+pourc,1+pourc)
+    fun1 = "x*{}".format(salFixe)
+    bb = "{},{},{},{}".format(-duree*0.1*12,
+                             max(12*salFixe*duree, salVar*(1-(1+pourc)**(12*duree))/(1-(1+pourc)))*1.1,
+                             duree*1.1*12,
+                             -max(12*salFixe*duree, salVar*(1-(1+pourc)**(12*duree))/(1-(1+pourc)))*0.1)
+    dom = "0,{}".format(1.5*duree*12)
+    line = str(duree*12)
+    feedback.set_problem_feedback(".. raw:: html\n\n\t<div id='jxgbox1' class='jxgbox mb-3' style='width:600px; height:600px;'></div>\n\t<script type='text/javascript'>\n\tvar b = JXG.JSXGraph.initBoard('jxgbox1', {boundingbox: ["+bb+"], axis: true});\n\tb.create('functiongraph', [function(x){return "+fun1+";},"+dom+"]);\n\tb.create('functiongraph', [function(x){return "+fun2+";},"+dom+"], {strokecolor:'#00ff00'});\n\tb.create('line', [["+line+",0], ["+line+",10]], {dash:2,strokeWidth:1});\n\tb.create('text', [1,"+str(max(12*salFixe*duree, salVar*(1-(1+pourc)**(12*duree))/(1-(1+pourc))))+", \"Système n°1\"], {color:\"#0000ff\"});\n\tb.create('text', [1,"+str(max(12*salFixe*duree, salVar*(1-(1+pourc)**(12*duree))/(1-(1+pourc)))*0.97)+", \"Système n°2\"], {color:\"#00ff00\"});\n\t</script>","q1")
+    
+    """feedback.set_problem_feedback(".. raw:: html\n\n\t<div id='jxgbox1' class='jxgbox mb-3' style='width:600px; height:400px;'></div>\n\t<script type='text/javascript'>\n\tvar b = JXG.JSXGraph.initBoard('jxgbox1', {boundingbox: [-3, 31000, 25, -2000], axis: true});\n\tb.create('functiongraph', [function(x){return 1200*x;},0,24]);\n\tb.create('functiongraph', [function(x){return 1000*(1-Math.pow(1.02,x))/(1-1.02);},0,24], {strokeColor:'#00ff00'});\n\tb.create('text', [2,25000,\"Premier système\"], {strokeColor:'#0000ff'});\n\tb.create('text', [2,23000,\"Deuxième système\"], {strokeColor:'#00ff00'});\n\tb.create('text', [20,1000,\"temps [mois]\"]);\n\t</script>","q1")"""
+else:
+    feedback.set_global_result("failed")
+    feedback.set_global_feedback("Une de vos réponses n'est pas correcte")

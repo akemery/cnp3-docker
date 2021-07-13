@@ -1,0 +1,79 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- expLog
+- difficile
+- prob
+- random
+contact_url: ''
+context: |-
+    .. raw:: html
+
+        Durant vos vacances, emporté par la joie et les plaisirs, vous dépensez chaque
+        jour un peu plus. Vous estimez que vous dépenserez <b><span id="p1"></span></b> euros le premier jour et que vous
+        dépenserez chaque jour <b><span id="p2"></span></b>% de plus que la veille. Si votre budget est de <b><span id="p3"></span></b> euros, combien
+        de temps vos vacances peuvent-elles durer ?
+
+    .. raw:: html
+
+        <script>
+            var depense = 10*parseInt(input["@random"][0]*10+10);
+            var pourcentage = parseInt(input["@random"][1]*10+3);
+            var budget = 100*parseInt(input["@random"][2]*10+10);
+            document.getElementById("p1").innerHTML = depense;
+            document.getElementById("p2").innerHTML = pourcentage;
+            document.getElementById("p3").innerHTML = budget;
+        </script>
+environment_id: math
+environment_parameters:
+    limits:
+        hard_time: ''
+        memory: '100'
+        time: '30'
+    run_cmd: ''
+environment_type: docker
+evaluate: best
+file: ''
+groups: false
+input_random: '3'
+name: Applications - 1.4
+network_grading: false
+problems:
+    q1:
+        type: math
+        header: |-
+            Entrer un nombre de jour entier.
+
+            .. raw:: html
+
+                <script type="text/javascript" charset="UTF-8" src="//jsxgraph.org/distrib/jsxgraphcore.js"></script>
+                <link rel="stylesheet" type="text/css" href="//jsxgraph.org/distrib/jsxgraph.css" />
+        hints: |-
+            La suite de ce que vous dépensez chaque jour augmente en suivant une loi géométrique de raison 1,05. On veut savoir après combien de jours la somme de ce que vous avez dépensé sera au dessus de 1500 euros en utilisant la formule de somme de suite géométrique
+
+            .. math::
+
+                \sum_{n=0}^{x-1} s_n = s_0 \frac{1-q^x}{1-q}
+
+            Il faut ensuite l'égaler à 1500 et résoudre l'équation pour trouver après combien de jours vous n'aurez plus d'argent.
+
+            .. math::
+
+                s_0 \frac{1-q^x}{1-q} = 1500
+
+            où :math:`s_0` est la somme que vous avez dépensé le premier jour.
+
+            Pour cela il va falloir faire appel au logarithmes.
+
+            Rappel:
+
+            .. math::
+
+                \log_a(b) = \frac{\log_{10}(b)}{\log_{10}(a)} = \frac{\ln(b)}{\ln(a)}
+        name: ''
+regenerate_input_random: 'on'
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

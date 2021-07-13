@@ -1,0 +1,94 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- suite
+- difficile
+contact_url: ''
+context: Suites géométriques
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Suites - 5.5
+network_grading: false
+problems:
+    q1:
+        type: math
+        header: |-
+            Soit :math:`(s_n)_{n\in\mathbb{N}}` une suite géométrique telle que
+
+            .. math::
+
+                \left\{\begin{array}{c}
+                    s_4 = \frac{7}{16}\\
+                    s_{10} = 28
+                \end{array}\right.
+
+            Calculer la raison :math:`q`.
+        hints: |-
+            Puisqu'on sait que
+
+            .. math::
+
+                s_n = s_0 q^n
+
+            en remplaçant :math:`s_n` et :math:`n` par les valeurs correspondantes, on trouve 2 équations à 2 inconnues (:math:`s_0` et :math:`q`) qu'on peut résoudre par exemple en isolant :math:`s_0` dans la première et en remplaçant :math:`s_0` dans la deuxième.
+        name: ''
+        answers:
+        - '2'
+    q2:
+        name: ''
+        answers:
+        - \frac{7}{256}
+        hints: |-
+            Puisqu'on sait que
+
+            .. math::
+
+                s_n = s_0 q^n
+
+            en remplaçant :math:`s_n` et :math:`n` par les valeurs correspondantes, on trouve 2 équations à 2 inconnues (:math:`s_0` et :math:`q`) qu'on peut résoudre par exemple en isolant :math:`s_0` dans la première et en remplaçant :math:`s_0` dans la deuxième.
+        header: |-
+            Soit :math:`(s_n)_{n\in\mathbb{N}}` une suite géométrique telle que
+
+            .. math::
+
+                \left\{\begin{array}{c}
+                    s_4 = \frac{7}{16}\\
+                    s_{10} = 28
+                \end{array}\right.
+
+            Calculer le premier terme.
+        type: math
+    q3:
+        header: |-
+            Soit :math:`(s_n)_{n\in\mathbb{N}}` une suite géométrique telle que
+
+            .. math::
+
+                \left\{\begin{array}{c}
+                    s_4 = \frac{7}{16}\\
+                    s_{10} = 28
+                \end{array}\right.
+
+            Calculer le terme d'ordre 6.
+        answers:
+        - \frac{7}{4}
+        type: math
+        hints: |-
+            le terme d'ordre :math:`n` d'une suite géométrique vaut
+
+            .. math::
+
+                s_n = s_0 q^n
+
+            où :math:`q` est la raison
+        name: ''
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

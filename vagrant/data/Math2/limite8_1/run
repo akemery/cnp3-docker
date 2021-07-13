@@ -1,0 +1,83 @@
+#!/bin/python3
+# -*- coding: utf-8 -*-
+
+# Ce fichier doit être utilisé pour un exercice de type 'random'
+
+import re
+from sympy import sympify, simplify
+from sympy.parsing.latex import parse_latex
+from inginious import input, feedback, rst
+
+par1 = int(input.get_input("@random")[0] * 10 + 1)
+par2 = int(input.get_input("@random")[1] * 10 + 1)
+par3 = int(input.get_input("@random")[2] * 10 + 1)
+
+correct1 = "(100*{}+60*{})/(60*{})".format(par1, par2, par3)
+correct2 = "(100*{}+{}t)/({}t)".format(par1, par2, par3)
+correct3 = "{}/{}".format(par2, par3)
+
+grade = 0
+
+def parse_equation(latex_str):
+    # The \left and \right prefix are not supported by sympy (and useless for treatment)
+    latex_str = re.sub("(\\\left|\\\\right)", "", latex_str)
+    return parse_latex(latex_str)
+
+def is_equal(eq1, eq2):
+    return simplify(eq1) == simplify(eq2) or simplify(sympify(str(eq1))) == simplify(sympify(str(eq2)))
+
+try:
+    student_answer1 = parse_equation(str(input.get_input("q1")[0]))
+    correct_answer1 = parse_equation(correct1)
+    student_answer2 = parse_equation(input.get_input("q2")[0])
+    correct_answer2 = parse_equation(correct2)
+    student_answer3 = parse_equation(input.get_input("q3")[0])
+    correct_answer3 = parse_equation(correct3)
+except LaTeXParsingError as e:
+    feedback.set_global_result("failed")
+    feedback.set_global_feedback("parsing error")
+
+res1 = is_equal(student_answer1, correct_answer1)
+
+if res1:
+    feedback.set_problem_result("success","q1")
+    feedback.set_problem_feedback("Bravo!","q1")
+    grade += 33
+else:
+    feedback.set_problem_result("failed","q1")
+    feedback.set_problem_feedback("Mauvaise réponse.","q1")
+
+res2 = is_equal(student_answer2, correct_answer2)
+
+if res2:
+    feedback.set_problem_result("success","q2")
+    feedback.set_problem_feedback("Bravo!","q2")
+    grade += 33
+else:
+    feedback.set_problem_result("failed","q2")
+    feedback.set_problem_feedback("Mauvaise réponse.","q2")
+
+res3 = is_equal(student_answer3, correct_answer3)
+
+if res3:
+    feedback.set_problem_result("success","q3")
+    feedback.set_problem_feedback("Bravo!","q3")
+    grade += 34
+else:
+    feedback.set_problem_result("failed","q3")
+    feedback.set_problem_feedback("Mauvaise réponse.","q3")
+
+
+feedback.set_grade(grade)
+if grade == 100:
+    feedback.set_global_result("success")
+    fun = "({}*100+{}*x)/(x*{})".format(par1, par2, par3)
+    bb = "{},{},{},{}".format(-30*60*0.1,
+                             5*(par2/par3),
+                             30*60*1.1,
+                             -0.4*(par2/par3))
+    dom = "0,{}".format(2*30*60)    
+    feedback.set_problem_feedback(".. raw:: html\n\n\t<div id='jxgbox1' class='jxgbox mb-3' style='width:600px; height:400px;'></div>\n\t<script type='text/javascript'>\n\tvar b = JXG.JSXGraph.initBoard('jxgbox1', {boundingbox: ["+bb+"], axis: true});\n\tb.create('functiongraph', [function(x){return "+fun+";},"+dom+"]);\n\tb.create('text', [45,-0.3, \"temps t [secondes]\"])\n\t</script>","q1")
+else:
+    feedback.set_global_result("failed")
+    feedback.set_global_feedback("Une de vos réponses n'est pas correcte")

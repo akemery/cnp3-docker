@@ -1,0 +1,36 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- suite
+- moyen
+contact_url: ''
+context: Somme de suites
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Suites - 10.2
+network_grading: false
+problems:
+    q1:
+        type: math
+        header: Calculer la somme des termes de rangs 0 à 8 d'une suite géométrique
+            de terme initial :math:`b=10^{-6}` et de raison :math:`r = 5`.
+        hints: |-
+            Pour résoudre cet exercice il faut utiliser la formule de somme des :math:`n` premiers termes d'une suite géométrique
+
+            .. math::
+
+                \sum_{k=0}^{n-1} s_k = s_0 \frac{1-q^n}{1-q}
+        tolerance: 0.001
+        name: ''
+        answers:
+        - '0.488281'
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

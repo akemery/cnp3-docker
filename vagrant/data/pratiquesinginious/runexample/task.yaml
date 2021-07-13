@@ -1,0 +1,31 @@
+accessible: false
+author: ''
+categories: []
+contact_url: ''
+context: ''
+environment_id: python3
+environment_parameters:
+    limits:
+        time: '30'
+        hard_time: ''
+        memory: '100'
+    run_cmd: ''
+environment_type: docker
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: runexample
+network_grading: false
+problems:
+    bonjour:
+        type: code
+        name: Bonjour
+        header: Vous ecrirez du code qui dit bonjour
+        language: python
+        default: ''
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

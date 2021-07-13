@@ -1,0 +1,49 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- limite
+- moyen
+contact_url: ''
+context: La limite suivante existe.
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Limites - 1.5
+network_grading: false
+problems:
+    q1:
+        type: math
+        header: |-
+            Calculer cette limite.
+
+            .. math::
+
+                \lim_{x\to 1} \frac{-x^4+x^2+x-1}{2-2x}
+
+            .. raw:: html
+
+                <script type="text/javascript" charset="UTF-8" src="//jsxgraph.org/distrib/jsxgraphcore.js"></script>
+                <link rel="stylesheet" type="text/css" href="//jsxgraph.org/distrib/jsxgraph.css" />
+        hints: Lorsque la limite tend vers un quotient :math:`\frac{0}{0}` il faut
+            factoriser le numérateur et le dénominateur pour pouvoir enlever l'indétermination.
+        name: Limite
+        success_message: |-
+            .. raw:: html
+
+                <div id='jxgbox1' class='jxgbox mb-3' style='width:600px; height:400px;'></div>
+                    <script type='text/javascript'>
+                    var b = JXG.JSXGraph.initBoard('jxgbox1', {boundingbox: [-4, 3, 4, -2], axis: true});
+                    b.create('functiongraph', [function(x){return (-x*x*x*x+x*x+x-1)/(2-2*x);},-6,6]);
+                    b.create('point', [1,1/2], {name:"limite"})
+                </script>
+        answers:
+        - \frac{1}{2}
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

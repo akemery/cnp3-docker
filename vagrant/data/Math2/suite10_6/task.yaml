@@ -1,0 +1,49 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- prob
+- suite
+- difficile
+contact_url: ''
+context: Problème avec suite géométrique
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Suites - 10.6
+network_grading: false
+problems:
+    q1:
+        type: math
+        header: |-
+            Trouver 3 termes consécutifs de la suite :math:`(s_n)_{n\in\mathbb{N}}` telle que
+
+            .. math::
+
+                s_n = 2^n
+
+            dont la somme vaut 1792.
+            Entrer les 3 termes.
+        hints: |-
+            Pour résoudre cet exercice il faut trouver quelle suite géométrique de raison :math:`q=2` a pour somme de ses 3 premiers termes 1792.
+
+            Plus précisément, pour quel :math:`n`
+
+            .. math::
+
+                2^n \frac{1-q^3}{1-q} = 1792
+
+            Une fois cette suite trouvée, il suffit de calculer ses 3 premiers termes.
+        answers:
+        - '256'
+        - '1024'
+        - '512'
+        name: ''
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

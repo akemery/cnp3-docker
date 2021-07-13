@@ -1,0 +1,34 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- limite
+- facile
+contact_url: ''
+context: Calculer la limite suivante.
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Limites - 13.1
+network_grading: false
+problems:
+    q1:
+        type: math
+        header: |-
+            Calculer
+
+            .. math::
+
+                \lim_{x\to2} \sqrt{x}+1
+        hints: ''
+        name: ''
+        answers:
+        - \sqrt{2}+1
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

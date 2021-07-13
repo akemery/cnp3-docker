@@ -1,0 +1,55 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- limite
+- difficile
+contact_url: ''
+context: La limite suivante existe.
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Limites - 1.8
+network_grading: false
+problems:
+    q1:
+        type: math
+        header: |-
+            Calculer cette limite.
+
+            .. math::
+
+                \lim_{x\to 4} \frac{4-x}{2-\sqrt{x}}
+
+            .. raw:: html
+
+                <script type="text/javascript" charset="UTF-8" src="//jsxgraph.org/distrib/jsxgraphcore.js"></script>
+                <link rel="stylesheet" type="text/css" href="//jsxgraph.org/distrib/jsxgraph.css" />
+        hints: |-
+            Pour résoudre cet exercice, il faut exprimer le numérateur sous la forme d'un produit remarquable
+
+            .. math::
+
+                (a-b)(a+b) = a^2-b^2
+
+            Et ensuite lever l'indétermination.
+        name: Limite
+        success_message: |-
+            .. raw:: html
+
+                <div id='jxgbox1' class='jxgbox mb-3' style='width:600px; height:400px;'></div>
+                    <script type='text/javascript'>
+                    var b = JXG.JSXGraph.initBoard('jxgbox1', {boundingbox: [-2, 4.5, 6, -0.5], axis: true});
+                    b.create('functiongraph', [function(x){return (4-x)/(2-Math.sqrt(x));},-6,6]);
+                    b.create('point', [4,4], {name:"limite"})
+                </script>
+        answers:
+        - '4'
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

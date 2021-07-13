@@ -1,0 +1,67 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- asymp
+- facile
+contact_url: ''
+context: |-
+    Pour la fonction dont le graphe est donné ci-dessous, lister toutes les
+    asymptotes horizontales et verticales et donner leurs équations cartésiennes.
+
+    .. raw:: html
+
+      <script type="text/javascript" charset="UTF-8" src="//jsxgraph.org/distrib/jsxgraphcore.js"></script>
+      <link rel="stylesheet" type="text/css" href="//jsxgraph.org/distrib/jsxgraph.css" />
+
+    .. raw:: html
+
+      <div id='jxgbox1' class='jxgbox mb-3' style='width:600px; height:450px;'></div>
+      <script type='text/javascript'>
+        var b = JXG.JSXGraph.initBoard('jxgbox1', {boundingbox: [-4, 3, 4, -2], axis: true});
+        b.create('functiongraph', [function(x){return 2*Math.atan(4*(x-1))/Math.PI;},1,10]);
+        b.create('functiongraph', [function(x){return 2*Math.atan(4*(x+1))/Math.PI;},-10,-1]);
+        b.create('circle', [[1,0], 0.02], {strokeWidth:3});
+        b.create('circle', [[-1,0], 0.02], {strokeWidth:3});
+      </script>
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Asymptotes - 1.2
+network_grading: false
+problems:
+    q1:
+        type: math
+        header: Lister ici l'équation cartésienne de toutes les asymptotes horizontales.
+            Si il n'y en a pas, entrer :math:`\emptyset`.
+        hints: |-
+            Les équations cartésiennes d'asymptotes horizontales sont du type
+
+            .. math::
+
+                y = a
+        answers:
+        - y=-1
+        - y=1
+        name: Asymptotes horizontales
+    q2:
+        name: Asymptotes verticales
+        answers:
+        - \varnothing
+        hints: |-
+            Les équations cartésiennes d'asymptotes verticales sont du type
+
+            .. math::
+
+                x = b
+        header: Lister ici l'équation cartésienne de toutes les asymptotes verticales.
+            Si il n'y en a pas, entrer :math:`\emptyset`.
+        type: math
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

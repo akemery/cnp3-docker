@@ -1,0 +1,39 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- suite
+- facile
+contact_url: ''
+context: Somme de suites
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Suites - 9.1
+network_grading: false
+problems:
+    q1:
+        type: math
+        header: |-
+            Calculer
+
+            .. math::
+
+                0+7+14+21+28+35+42+49+56+63+70
+        hints: |-
+            Il s'agit de la somme des 11 premiers termes d'une suite arithmétique de raison :math:`r=7` et de terme initial :math:`s_0 = 0`.
+
+            .. math::
+
+                \sum_{k=0}^{n} s_k = (n+1) \frac{s_0+s_n}{2}
+        name: ''
+        answers:
+        - '385'
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

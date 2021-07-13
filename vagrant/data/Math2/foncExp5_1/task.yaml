@@ -1,0 +1,34 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- expLog
+- facile
+contact_url: ''
+context: Calculer la dérivée de la fonction dérivable suivante.
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Fonctions exponentielles - 5.1
+network_grading: false
+problems:
+    q1:
+        type: math
+        header: Calculer la dérivée de :math:`f(x) = e^x + x^2`
+        hints: |-
+            Il s'agit de la dérivée d'une somme, :math:`f(x) = a(x) + b(x)`
+
+            .. math::
+
+                f'(x) = (a(x) + b(x))' = a'(x) + b'(x)
+        name: ''
+        answers:
+        - e^x+2x
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

@@ -1,0 +1,37 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- suite
+- facile
+contact_url: ''
+context: Suite arithmétique
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Suites - 2.1
+network_grading: false
+problems:
+    q1:
+        type: math
+        header: Calculer le terme de rang 20 d'une suite arithémtique dont la raison
+            :math:`r=-7` et dont le premier terme :math:`a=-1`.
+        hints: |-
+            Pour trouver le terme de rang :math:`n` d'une suite arithmétique on calcule
+
+            .. math::
+
+                s_n = s_0 + nr
+
+            où :math:`r` est la raison de la suite arithmétique.
+        name: ''
+        answers:
+        - '-141'
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

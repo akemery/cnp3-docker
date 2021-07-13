@@ -1,0 +1,56 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- prob
+- suite
+- difficile
+- random
+contact_url: ''
+context: Problème avec suite arithmétique
+environment_id: math
+environment_parameters:
+    limits:
+        hard_time: ''
+        memory: '100'
+        time: '30'
+    run_cmd: ''
+environment_type: docker
+evaluate: best
+file: ''
+groups: false
+input_random: '2'
+name: Suite - 4
+network_grading: false
+problems:
+    q1:
+        type: math
+        header: |-
+            .. raw:: html
+
+                Si j'économise <b><span id="p1"></span></b> euros par mois et qu'en <b><span id="p2"></span></b> ans mes économies ont triplé,
+                combien avais-je d'économies initialement ?
+
+            .. raw:: html
+
+                <script>
+                    var eco = 10*parseInt(input["@random"][0]*10+5);
+                    var n = parseInt(input["@random"][1]*3+2);
+                    document.getElementById("p1").innerHTML = eco;
+                    document.getElementById("p2").innerHTML = n;
+                </script>
+
+            .. raw:: html
+
+                <script type="text/javascript" charset="UTF-8" src="//jsxgraph.org/distrib/jsxgraphcore.js"></script>
+                <link rel="stylesheet" type="text/css" href="//jsxgraph.org/distrib/jsxgraph.css" />
+        hints: Pour résoudre cet exercice il faut poser l'inconnue :math:`x` comme
+            étant la somme d'argent qu'on avait on départ et mettre en équation le
+            triple de ce qu'on avait au départ et la somme de ce qu'on avait au départ
+            avec ce qu'on a gagné entre temps.
+        name: ''
+regenerate_input_random: 'on'
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

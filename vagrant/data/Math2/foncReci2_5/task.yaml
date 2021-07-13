@@ -1,0 +1,41 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- foncReci
+- moyen
+contact_url: ''
+context: En utilisant l'injectivité des fonctions exponentielles, résoudre cette équation
+    dans :math:`\mathbb{R}`.
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Fonctions réciproques - 2.5
+network_grading: false
+problems:
+    q1:
+        type: math
+        header: |-
+            Résoudre l'équation.
+
+            .. math::
+                10^x = \frac{2^x}{25}
+        hints: |-
+            Pour résoudre cet exercice vous devez séparer l'exponentielle de base 10 en une exponentielle de base 5 et une exponentielle de base 2.
+
+            Rappel:
+
+            .. math::
+
+                (ab)^c = a^cb^c
+        name: Equation
+        answers:
+        - '-2'
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

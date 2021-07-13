@@ -1,0 +1,88 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- suite
+- difficile
+contact_url: ''
+context: Suite arithmétique
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Suites - 2.5
+network_grading: false
+problems:
+    q2:
+        name: ''
+        answers:
+        - \frac{1}{5}
+        hints: |-
+            Puisqu'on sait que
+
+            .. math::
+
+                s_n = s_0 + nr
+
+            en remplaçant :math:`s_n` et :math:`n` par les valeurs correspondantes, on trouve 2 équations à 2 inconnues (:math:`s_0` et :math:`r`) qu'on peut résoudre par exemple en isolant :math:`s_0` dans la première et en remplaçant :math:`s_0` dans la deuxième.
+        header: |-
+            Calculer la raison d'une suite arithmétique telle que
+
+            .. math::
+
+                \left\{\begin{array}{c}
+                    s_4 = 15\\
+                    s_{31} = 20 + \frac{2}{5}
+                \end{array}\right.
+        type: math
+    q1:
+        type: math
+        header: |-
+            Calculer le premier terme d'une suite arithmétique telle que
+
+            .. math::
+
+                \left\{\begin{array}{c}
+                    s_4 = 15\\
+                    s_{31} = 20 + \frac{2}{5}
+                \end{array}\right.
+        hints: |-
+            Puisqu'on sait que
+
+            .. math::
+
+                s_n = s_0 + nr
+
+            en remplaçant :math:`s_n` et :math:`n` par les valeurs correspondantes, on trouve 2 équations à 2 inconnues (:math:`s_0` et :math:`r`) qu'on peut résoudre par exemple en isolant :math:`s_0` dans la première et en remplaçant :math:`s_0` dans la deuxième.
+        name: ''
+        answers:
+        - 14+\frac{1}{5}
+    q3:
+        header: |-
+            Calculer le terme d'ordre 20 d'une suite arithmétique telle que
+
+            .. math::
+
+                \left\{\begin{array}{c}
+                    s_4 = 15\\
+                    s_{31} = 20 + \frac{2}{5}
+                \end{array}\right.
+        answers:
+        - 18+\frac{1}{5}
+        type: math
+        hints: |-
+            Pour trouver le terme de rang :math:`n` d'une suite arithmétique on calcule
+
+            .. math::
+
+                s_n = s_0 + nr
+
+            où :math:`r` est la raison de la suite arithmétique.
+        name: ''
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

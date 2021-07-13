@@ -1,0 +1,70 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- foncLog
+- moyen
+contact_url: ''
+context: |-
+    Pour la fonction :math:`f` suivante
+
+    .. math::
+
+        f : \mathbb{R}_0^+ \to \mathbb{R} : x \mapsto \ln(\frac{ex}{e^2+x^2})
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Fonctions logarithmes - 8
+network_grading: false
+problems:
+    q1:
+        type: math
+        header: |-
+            Si il existe, quel est le maximum atteint par la fonction :math:`f` ? Si il n'existe pas, entrer :math:`\emptyset`.
+
+            .. raw:: html
+
+                <script type="text/javascript" charset="UTF-8" src="//jsxgraph.org/distrib/jsxgraphcore.js"></script>
+                <link rel="stylesheet" type="text/css" href="//jsxgraph.org/distrib/jsxgraph.css" />
+        hints: |-
+            **Etape 1**: calculer la dérivée de :math:`f(x)`
+
+            Il s'agit de la dérivée d'une composée de deux fonctions
+
+            .. math::
+
+                (u(v(x)))' = u'(v(x))v'(x)
+
+            **Etape 2**: trouver toutes les solutions de l'équation :math:`f'(x)=0`
+
+            Les solutions de cette équation sont les candidats pour être le point d'abscisse du maximum
+
+            **Etape 3**: vérifier que le(s) abscisse(s) qu'on a trouvé sont des maxima en vérifiant que la dérivée seconde soit négative en ce(s) point(s)
+        name: Maximum
+        success_message: |-
+            .. raw:: html
+
+                <div id='jxgbox1' class='jxgbox mb-3' style='width:600px; height:400px;'></div>
+                    <script type='text/javascript'>
+                    var b = JXG.JSXGraph.initBoard('jxgbox1', {boundingbox: [-1, 1, 5, -3], axis: true});
+                    b.create('functiongraph', [function(x){return Math.log(Math.E*x/(Math.pow(Math.E,2)+Math.pow(x,2)));},0,5]);
+                    b.create('point', [Math.E, -Math.log(2)], {name:'Max'})
+                </script>
+        answers:
+        - -\ln\left(2\right)
+    q2:
+        name: Abscisse
+        answers:
+        - e
+        hints: ''
+        header: Si il existe, en quelle abscisse la fonction :math:`f` atteint-elle
+            son maximum ? Si il n'existe pas, entrer :math:`\emptyset`.
+        type: math
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

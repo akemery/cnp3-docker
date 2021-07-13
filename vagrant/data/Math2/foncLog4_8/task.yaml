@@ -1,0 +1,77 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- foncLog
+- difficile
+contact_url: ''
+context: |-
+    Pour la fonction suivante, déterminer si elle converge ou diverge pour :math:`x \to 0`
+    et :math:`x \to +\infty`.
+
+    .. math::
+
+        f : \mathbb{R}_0^+ \to \mathbb{R} : x \mapsto \log_3(x) - \log_9(x)
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Fonctions logarithmes - 4.8
+network_grading: false
+problems:
+    q1:
+        type: math
+        header: |-
+            Que vaut
+
+            .. math::
+                \lim_{x \to +\infty} f(x)
+
+            .. raw:: html
+
+                <script type="text/javascript" charset="UTF-8" src="//jsxgraph.org/distrib/jsxgraphcore.js"></script>
+                <link rel="stylesheet" type="text/css" href="//jsxgraph.org/distrib/jsxgraph.css" />
+        hints: |-
+            Pour résoudre cet exercice, il faut effectuer un changement de base avec la formule
+
+            .. math::
+
+                \log_a(b) = \frac{\log_{10}(b)}{\log_{10}(a)} = \frac{\ln(b)}{\ln(a)}
+
+            Ensuite ramener les deux fractions sous le même dénominateur.
+        name: Limite
+        success_message: |-
+            .. raw:: html
+
+                <div id='jxgbox1' class='jxgbox mb-3' style='width:600px; height:600px;'></div>
+                    <script type='text/javascript'>
+                    var b = JXG.JSXGraph.initBoard('jxgbox1', {boundingbox: [-1, 2, 9, -8], axis: true});
+                    b.create('functiongraph', [function(x){return Math.log(x)/Math.log(3) - Math.log(x)/Math.log(9);},-1,9]);
+                </script>
+        answers:
+        - \infty
+    q2:
+        name: Limite
+        answers:
+        - -\infty
+        hints: |-
+            Pour résoudre cet exercice, il faut effectuer un changement de base avec la formule
+
+            .. math::
+
+                \log_a(b) = \frac{\log_{10}(b)}{\log_{10}(a)} = \frac{\ln(b)}{\ln(a)}
+
+            Ensuite ramener les deux fractions sous le même dénominateur.
+        header: |-
+            Que vaut
+
+            .. math::
+                \lim_{x \to 0} f(x)
+        type: math
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

@@ -1,0 +1,45 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- foncLog
+- facile
+contact_url: ''
+context: En utilisant les propriétés des fonctions exponentielles et logarithmes,
+    résoudre l'équation suivante dans :math:`\mathbb{R}`.
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Fonctions logarithmes - 11.3
+network_grading: false
+problems:
+    q1:
+        type: math
+        header: |-
+            Entrer toutes les solutions de l'équation.
+            Si il n'y a pas de solutions, Entrer :math:`\emptyset`.
+
+            .. math::
+
+                \log_{\sqrt{2}}(x^2-12) = \log_{\sqrt{2}}(x)
+        hints: |-
+            .. math::
+
+                \log_a(a^x) = x
+
+            et
+
+            .. math::
+
+                a^{\log_a(x)} = x
+        name: Equation
+        answers:
+        - '4'
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

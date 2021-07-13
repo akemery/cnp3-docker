@@ -1,0 +1,45 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- foncReci
+- moyen
+contact_url: ''
+context: En utilisant l'injectivité des fonctions exponentielles, résoudre cette équation
+    dans :math:`\mathbb{R}`.
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Fonctions réciproques - 2.3
+network_grading: false
+problems:
+    q1:
+        type: math
+        header: |-
+            Résoudre l'équation.
+
+            .. math::
+                3^{\pi+x} = (\frac{1}{9})^{2x}
+        hints: |-
+            Rappel:
+
+            .. math::
+
+                (a^b)^c = a^{bc}
+
+            Exemple:
+
+            .. math::
+
+                (\frac{1}{4})^x = (2^{-2})^x = 2^{-2x}
+        name: Equation
+        answers:
+        - -\frac{\pi}{5}
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

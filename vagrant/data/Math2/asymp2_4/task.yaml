@@ -1,0 +1,79 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- asymp
+- moyen
+contact_url: ''
+context: Pour la fonction suivante, déterminer les équations cartésiennes de toutes
+    les asymptotes verticales et horizontales.
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Asymptotes - 2.4
+network_grading: false
+problems:
+    q1:
+        type: math
+        header: |-
+            Lister ici l'équation cartésienne de toutes les asymptotes verticales. Si il n'y en a pas, entrer :math:`\emptyset`.
+
+            .. math::
+
+                f : \mathbb{R}\backslash\{2\} \to \mathbb{R} : x \mapsto \frac{2x+1}{6-3x}
+
+            .. raw:: html
+
+                <script type="text/javascript" charset="UTF-8" src="//jsxgraph.org/distrib/jsxgraphcore.js"></script>
+                <link rel="stylesheet" type="text/css" href="//jsxgraph.org/distrib/jsxgraph.css" />
+        hints: |-
+            Il y a une asymptote verticale lorsque la fonction tend vers :math:`+\infty` ou :math:`-\infty` en un point d'abscisse réel.
+            L'équation cartésienne de l'asymptote vaut alors
+
+            .. math::
+
+                x = b
+
+            Pour trouver ces points sur lesquels la fonction diverge, Calculer les points où la fonction n'est pas définie et vérifier
+            les limites vers ces points.
+        name: Asymptotes verticales
+        success_message: |-
+            .. raw:: html
+
+                <div id='jxgbox1' class='jxgbox mb-3' style='width:600px; height:600px;'></div>
+                    <script type='text/javascript'>
+                    var b = JXG.JSXGraph.initBoard('jxgbox1', {boundingbox: [-8, 8, 8, -8], axis: true});
+                    b.create('functiongraph', [function(x){return (2*x+1)/(6-3*x);},-10,10]);
+                    b.create('line', [[2,0], [2,1]], {dash:2,strokeWidth:1});
+                    b.create('line', [[0,-2/3], [1,-2/3]], {dash:2,strokeWidth:1});
+                </script>
+        answers:
+        - x=2
+    q2:
+        name: Asymptotes horizontales
+        answers:
+        - y=-\frac{2}{3}
+        hints: |-
+            Il y a une asymptote horizontale lorsque la fonction tend en :math:`+\infty` ou :math:`-\infty` vers une valeur réelle.
+            L'équation cartésienne de l'asymptote vaut alors
+
+            .. math::
+
+                y = a
+
+            Vérifier les limites en :math:`+\infty` et :math:`-\infty`, si une d'elles converge alors il y a une asymptote horizontale.
+        header: |-
+            Lister ici l'équation cartésienne de toutes les asymptotes horizontales. Si il n'y en a pas, entrer :math:`\emptyset`.
+
+            .. math::
+
+                f : \mathbb{R}\backslash\{2\} \to \mathbb{R} : x \mapsto \frac{2x+1}{6-3x}
+        type: math
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

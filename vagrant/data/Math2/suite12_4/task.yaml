@@ -1,0 +1,59 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- suite
+- moyen
+- limite
+contact_url: ''
+context: En partant des limites de base, calculer la limite de la suite suivante.
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Suites - 12.4
+network_grading: false
+problems:
+    q1:
+        type: math
+        header: |-
+            Calculer la limite de
+
+            .. math::
+
+                s : \mathbb{N} \to \mathbb{R} : n \mapsto \frac{n^2-9}{n^2+6n+9}
+
+            .. raw:: html
+
+                <script type="text/javascript" charset="UTF-8" src="//jsxgraph.org/distrib/jsxgraphcore.js"></script>
+                <link rel="stylesheet" type="text/css" href="//jsxgraph.org/distrib/jsxgraph.css" />
+        hints: |-
+            Lorsqu'un quotient de polynômes tend vers l'infini, on peut le remplacer par le quotient des monôme de plus grand degré au numérateur et au dénominateur.
+
+            par exemple:
+
+            .. math::
+
+                \lim_{n\to\infty} \frac{3n^2-2n+6}{12n^2+5n} = \lim_{n\to\infty} \frac{3n^2}{12n^2} = \lim_{n\to\infty} \frac{3}{12} = \frac{1}{4}
+        name: ''
+        success_message: |-
+            .. raw:: html
+
+                <div id='jxgbox1' class='jxgbox mb-3' style='width:600px; height:400px;'></div>
+                    <script type='text/javascript'>
+                    var b = JXG.JSXGraph.initBoard('jxgbox1', {boundingbox: [-3, 2, 30, -1.5], axis: true});
+
+                    for (let i = 0; i < 50; i++) {
+                        b.create('point', [i, (Math.pow(i,2)-9)/(Math.pow(i,2)+6*i+9)], {size: 2});
+                    }
+                b.create('functiongraph', [function(x){return 1;}, 0, 50], {dash: 2});
+                </script>
+        answers:
+        - '1'
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

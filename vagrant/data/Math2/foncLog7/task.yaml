@@ -1,0 +1,73 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- foncLog
+- moyen
+contact_url: ''
+context: QCM - Croissance, dérivabilité et concavité
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Fonctions logarithmes - 7
+network_grading: false
+problems:
+    q1:
+        choices:
+        -   valid: true
+            text: strictement croissante
+        -   text: strictement décroissante
+        -   text: croissante
+        -   text: décroissante
+        type: multiple_choice
+        header: |-
+            Quelle proposition convient le mieux pour la fonction :math:`f` suivante
+
+            .. math::
+
+                f : \mathbb{R}_0^+ \to \mathbb{R} : x \mapsto -\ln(1+\frac{1}{x})
+
+            La fonction est :math:`\dots`
+
+            .. raw:: html
+
+                <script type="text/javascript" charset="UTF-8" src="//jsxgraph.org/distrib/jsxgraphcore.js"></script>
+                <link rel="stylesheet" type="text/css" href="//jsxgraph.org/distrib/jsxgraph.css" />
+        limit: 0
+        name: Croissance
+        success_message: |-
+            .. raw:: html
+
+                <div id='jxgbox1' class='jxgbox mb-3' style='width:600px; height:400px;'></div>
+                    <script type='text/javascript'>
+                    var b = JXG.JSXGraph.initBoard('jxgbox1', {boundingbox: [-1, 1, 5, -3], axis: true});
+                    b.create('functiongraph', [function(x){return -Math.log(1+1/x);},0,5]);
+                </script>
+    q2:
+        choices:
+        -   text: '1'
+        -   text: '2'
+        -   text: '3'
+        -   text: :math:`\infty`
+            valid: true
+        name: Dérivabilité
+        limit: 0
+        header: Combien de fois est dérivable la fonction logarithme népérien ?
+        type: multiple_choice
+    q3:
+        header: La fonction logarithme népérien est :math:`\dots`
+        choices:
+        -   valid: true
+            text: concave
+        -   text: convexe
+        limit: 0
+        type: multiple_choice
+        name: Concavité
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

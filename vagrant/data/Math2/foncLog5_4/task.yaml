@@ -1,0 +1,51 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- foncLog
+- moyen
+contact_url: ''
+context: Calculer la dérivée de la fonction dérivable suivante.
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Fonctions logarithmes - 5.4
+network_grading: false
+problems:
+    q1:
+        type: math
+        header: |-
+            Entrer la fonction dérivée de
+
+            .. math::
+
+                f : [-\frac{1}{49};+\infty[ \to \mathbb{R} : x \mapsto \sqrt{\log_7(x)+2}
+        hints: |-
+            Il s'agit de la dérivée d'une composée de fonction, :math:`f(x) = g(h(x))`
+
+            .. math::
+
+                f'(x) = g'(h(x)).h'(x)
+
+            Rappel:
+
+            .. math::
+
+                \log_a'(x) = \frac{1}{x.\ln(a)}
+
+            Rappel 2:
+
+            .. math::
+
+                \sqrt{x}' = \frac{1}{2\sqrt{x}}
+        name: Dérivée
+        answers:
+        - \frac{1}{2\ln\left(7\right)x\sqrt{\log_7\left(x\right)+2}}
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

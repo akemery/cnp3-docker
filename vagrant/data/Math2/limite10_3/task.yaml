@@ -1,0 +1,54 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- limite
+- moyen
+contact_url: ''
+context: A l'aide d'un graphique, déterminer si la limite suivante existe. Si oui,
+    calculer sa valeur.
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Limites - 10.3
+network_grading: false
+problems:
+    q1:
+        type: math
+        header: |-
+            Calculer
+
+            .. math::
+
+                \lim_{x\to0} \frac{1}{x}
+
+            Si la limite n'existe pas, entrer :math:`\emptyset`.
+
+            .. raw:: html
+
+                <script type="text/javascript" charset="UTF-8" src="//jsxgraph.org/distrib/jsxgraphcore.js"></script>
+                <link rel="stylesheet" type="text/css" href="//jsxgraph.org/distrib/jsxgraph.css" />
+        hints: |-
+            Lorsque une limite tend vers un dénominateur nul (exemple: :math:`\frac{2}{0}`) il faut déterminer si elle tend vers :math:`+\infty` ou :math:`-\infty` en déterminant le signe du dénominateur en fonction de si c'est une limite à gauche ou une limite à droite.
+
+            Ça peut être utile de tracer le graphe du dénominateur.
+        name: ''
+        success_message: |-
+            .. raw:: html
+
+                <div id='jxgbox1' class='jxgbox mb-3' style='width:600px; height:400px;'></div>
+                <script type='text/javascript'>
+                    var b = JXG.JSXGraph.initBoard('jxgbox1', {boundingbox: [-6, 4, 6, -4], axis: true});
+                    b.create('functiongraph', [function(x){return 1/x;},-6,6]);
+
+                </script>
+        answers:
+        - \varnothing
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

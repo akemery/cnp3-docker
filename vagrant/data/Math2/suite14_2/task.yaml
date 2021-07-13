@@ -1,0 +1,54 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- suite
+- moyen
+contact_url: ''
+context: Somme limite d'une suite
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Suites - 14.2
+network_grading: false
+problems:
+    q1:
+        type: math
+        header: |-
+            En exprimant l'expression ":math:`44-22+11-\frac{11}{2}+\frac{11}{4}-\frac{11}{8}+\dots`" correctement sous la forme d'une limite, calculer sa valeur.
+
+            .. raw:: html
+
+                <script type="text/javascript" charset="UTF-8" src="//jsxgraph.org/distrib/jsxgraphcore.js"></script>
+                <link rel="stylesheet" type="text/css" href="//jsxgraph.org/distrib/jsxgraph.css" />
+        hints: |-
+            Cette somme infinie est la somme de tout les termes d'une suite géométrique de raison :math:`q=\frac{-1}{2}`
+
+            Et on sait que la somme infinie d'une telle suite vaut
+
+            .. math::
+
+                \sum_{n=0}^{\infty} s_n = s_0 \frac{1}{1-q}
+        name: ''
+        success_message: |-
+            .. raw:: html
+
+                <div id='jxgbox1' class='jxgbox mb-3' style='width:600px; height:400px;'></div>
+                    <script type='text/javascript'>
+                    var b = JXG.JSXGraph.initBoard('jxgbox1', {boundingbox: [-1, 50, 10, 15], axis: true});
+
+                    for (let n = 0; n < 50; n++) {
+                        b.create('point', [n, 44*(1-Math.pow(-1/2,n+1))/(1+1/2)], {size: 2});
+                    }
+                    b.create('functiongraph', [function(x){return 88/3;}, 0, 50], {dash: 2});
+                </script>
+        answers:
+        - \frac{88}{3}
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

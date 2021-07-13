@@ -1,0 +1,39 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- foncLog
+- moyen
+contact_url: ''
+context: Intégrale définie
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Fonctions logarithmes - 10.3
+network_grading: false
+problems:
+    q1:
+        type: math
+        header: |-
+            Calculer la valeur de l'intégrale définie suivante.
+
+            .. math::
+
+                \int_1^{e^3} \frac{x+1}{x} \mathrm{d}x
+        hints: |-
+            Pour résoudre cet exercice il faut séparer la fraction en deux:
+
+            .. math::
+
+                \frac{1+x}{x} = \frac{1}{x} + \frac{x}{x}
+        name: Intégrale
+        answers:
+        - 2+e^3
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

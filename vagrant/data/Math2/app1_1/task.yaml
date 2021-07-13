@@ -1,0 +1,73 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- expLog
+- facile
+- prob
+- random
+contact_url: ''
+context: |
+    .. raw:: html
+
+        Vous déposez <b><span id="par1"></span></b> euros sur un compte en banque avec des intérêts composés
+        annuels de <b><span id="par2"></span></b>%. Combien d'années devez-vous attendre sans toucher à l'argent du compte pour que la somme initiale soit au moins doublée ?
+
+    .. raw:: html
+
+        <script>
+            var par1 = 100*parseInt(input["@random"][0]*10+1);
+            var par2 = (1 + parseInt(input["@random"][1]*100)/100).toFixed(2);
+            document.getElementById("par1").innerHTML = par1;
+            document.getElementById("par2").innerHTML = par2;
+        </script>
+environment_id: math
+environment_parameters:
+    limits:
+        hard_time: ''
+        memory: '100'
+        time: '30'
+    run_cmd: ''
+environment_type: docker
+evaluate: best
+file: ''
+groups: false
+input_random: '2'
+name: Applications - 1.1
+network_grading: false
+problems:
+    q1:
+        type: math
+        header: |-
+            Entrer un nombre d'années entier.
+
+            .. raw:: html
+
+                <script type="text/javascript" charset="UTF-8" src="//jsxgraph.org/distrib/jsxgraphcore.js"></script>
+                <link rel="stylesheet" type="text/css" href="//jsxgraph.org/distrib/jsxgraph.css" />
+        hints: |-
+            Pour résoudre ce genre de problème il faut se rendre compte que la somme d'argent est une fonction exponentielle de base :math:`1+p` ou :math:`p` est le pourcentage (par exemple 1,02 si :math:`p=2\%`), multipliée par la somme au temps 0.
+
+            .. math::
+
+                f(x) = f_0(1+p)^x
+
+            Une fois la fonction représentant la somme d'argent au cours du temps trouvée, il faut résoudre l'équation en l'égalant à :math:`2f_0` dans ce cas-ci puisqu'on veut doubler la somme de départ.
+
+            .. math::
+
+                f_0(1+p)^x = 2f_0
+
+            Pour cela il va falloir faire appel au logarithmes.
+
+            Rappel:
+
+            .. math::
+
+                \log_a(b) = \frac{\log_{10}(b)}{\log_{10}(a)} = \frac{\ln(b)}{\ln(a)}
+        name: ''
+regenerate_input_random: 'on'
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

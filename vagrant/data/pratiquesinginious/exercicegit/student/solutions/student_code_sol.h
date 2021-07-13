@@ -1,0 +1,1 @@
+int powersol(int p, int n);

@@ -1,0 +1,104 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- limite
+- prob
+- moyen
+- random
+contact_url: ''
+context: |-
+    .. raw:: html
+
+        Un homme souhaite changer la teneur en sel de son aquarium pour y
+        accueillir de nouveaux poissons. Alors que son aquarium contient initialement <b><span id="ipr1"></span></b> litres d'eau
+        douce, il commence à remplir l'aquarium avec à la fois de l'eau douce et de l'eau salée (avec
+        deux pompes différentes). La pompe d'eau douce a un débit de <b><span id="ipr2"></span></b> centilitre par seconde, tandis
+        que la pompe d'eau salée a un débit de <b><span id="ipr3"></span></b> centilitres par seconde.
+
+    .. raw:: html
+
+        <script>
+            var par1 = parseInt(input["@random"][0]*10+1);
+            var par2 = parseInt(input["@random"][1]*10+1);
+            var par3 = parseInt(input["@random"][2]*10+1);
+            document.getElementById("ipr1").innerHTML = par1;
+            document.getElementById("ipr2").innerHTML = par2;
+            document.getElementById("ipr3").innerHTML = par3;
+        </script>
+environment_id: math
+environment_parameters:
+    limits:
+        hard_time: ''
+        memory: '100'
+        time: '30'
+    run_cmd: ''
+environment_type: docker
+evaluate: best
+file: ''
+groups: false
+input_random: '3'
+name: Limites - 8.1
+network_grading: false
+problems:
+    q1:
+        type: math
+        header: |-
+            Quel est le rapport de la quantité d'eau douce et de la quantité d'eau salée après une minute de remplissage ?
+
+            .. raw:: html
+
+                <script type="text/javascript" charset="UTF-8" src="//jsxgraph.org/distrib/jsxgraphcore.js"></script>
+                <link rel="stylesheet" type="text/css" href="//jsxgraph.org/distrib/jsxgraph.css" />
+        hints: |-
+            La quantité d'eau douce en fonction du temps (en centilitre) vaut
+
+            .. math::
+
+                q_1(t) = 300 + t
+
+            Et la quantité d'eau salée en fonction du temps (en centilitre) vaut
+
+            .. math::
+
+                q_2(t) = 2t
+        name: ''
+        success_message: |-
+            .. raw:: html
+
+                <div id='jxgbox1' class='jxgbox mb-3' style='width:600px; height:400px;'></div>
+                    <script type='text/javascript'>
+                    var b = JXG.JSXGraph.initBoard('jxgbox1', {boundingbox: [-3, 4, 60, -1], axis: true});
+                    b.create('functiongraph', [function(x){return (300+(x*60))/(2*(x*60));},-1,60]);
+                    b.create('text', [45,-0.3, "temps t [minutes]"])
+                </script>
+    q2:
+        name: ''
+        hints: |-
+            Le rapport recherché est
+
+            .. math::
+
+                \frac{q_1(t)}{q_2(t)}
+        header: Quel est le rapport de la quantité d'eau douce et de la quantité d'eau
+            salée après :math:`t` secondes de remplissage ? (:math:`t` étant un nombre
+            réel strictement positif quelconque.)
+        type: math
+    q3:
+        header: Au fur et à mesure que le temps passe, de quoi se rapproche le rapport
+            de la quantité d'eau douce et de la quantité d'eau salée ?
+        type: math
+        hints: |-
+            Lorsqu'un quotient de polynômes tend vers l'infini, on peut le remplacer par le quotient des monôme de plus grand degré au numérateur et au dénominateur.
+
+            par exemple:
+
+            .. math::
+
+                \lim_{x\to\infty} \frac{3x^2-2x+6}{12x^2+5x} = \lim_{x\to\infty} \frac{3x^2}{12x^2} = \lim_{x\to\infty} \frac{3}{12} = \frac{1}{4}
+        name: ''
+regenerate_input_random: 'on'
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

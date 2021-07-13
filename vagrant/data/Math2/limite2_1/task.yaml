@@ -1,0 +1,52 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- limite
+- facile
+contact_url: ''
+context: |-
+    À l'aide d'un graphique, déterminer si la fonction diverge au point
+    considéré. Si oui, donner le type de divergence.
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Limites - 2.1
+network_grading: false
+problems:
+    q1:
+        type: math
+        header: |-
+            .. math::
+
+                \lim_{x \to 0} \frac{-1}{\sqrt{x}}
+
+            Si elle converge, donner sa limite. Si elle diverge, entrer :math:`-\infty`
+            ou :math:`+\infty`. Et si elle ne diverge pas et ne converge pas, entrer
+            :math:`\emptyset`.
+
+            .. raw:: html
+
+                <script type="text/javascript" charset="UTF-8" src="//jsxgraph.org/distrib/jsxgraphcore.js"></script>
+                <link rel="stylesheet" type="text/css" href="//jsxgraph.org/distrib/jsxgraph.css" />
+        hints: La limite n'existe pas en un point que si la limite à gauche et la
+            limite à droite en ce point existent et ne sont pas les mêmes.
+        name: Convergence ou divergence
+        success_message: |-
+            .. raw:: html
+
+                <div id='jxgbox1' class='jxgbox mb-3' style='width:600px; height:400px;'></div>
+                    <script type='text/javascript'>
+                    var b = JXG.JSXGraph.initBoard('jxgbox1', {boundingbox: [-1, 1, 5, -3], axis: true});
+                    b.create('functiongraph', [function(x){return -1/Math.sqrt(x);},-1,5]);
+                </script>
+        answers:
+        - -\infty
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

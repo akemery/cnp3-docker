@@ -1,0 +1,41 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- expLog
+- difficile
+contact_url: ''
+context: Intégrale définie
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Fonctions exponentielles - 9.5
+network_grading: false
+problems:
+    q1:
+        type: math
+        header: |-
+            Calculer l'intégrale définie de la fonction intégrable suivante
+
+            .. math::
+                \int_{10}^{11} xe^x \, \mathrm{d}x
+        hints: |-
+            Utiliser l'intégration par partie:
+
+            .. math::
+
+                \int_a^b f'(x)g(x) \, \mathrm{d}x =
+                [f(x)g(x)]_a^b - \int_a^b f(x)g'(x) \, \mathrm{d}x
+
+            en prenant dans ce cas-ci :math:`g(x) = x` et :math:`f(x) = e^x` pour n'avoir que du :math:`e^x` dans la 2ème intégrale.
+        name: ''
+        answers:
+        - e^{10}\left(10e-9\right)
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

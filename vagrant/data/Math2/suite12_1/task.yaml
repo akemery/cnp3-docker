@@ -1,0 +1,59 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- suite
+- facile
+- limite
+contact_url: ''
+context: |-
+    En partant des limites de base, démontrer que les suites suivantes ont une
+    limite et calculer celle-ci.
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Suites - 12.1
+network_grading: false
+problems:
+    q1:
+        type: math
+        header: |-
+            Calculer la limite de
+
+            .. math::
+
+                s : \mathbb{N} \to \mathbb{R} : n \mapsto 3 - \frac{1}{n+1}
+
+            .. raw:: html
+
+                <script type="text/javascript" charset="UTF-8" src="//jsxgraph.org/distrib/jsxgraphcore.js"></script>
+                <link rel="stylesheet" type="text/css" href="//jsxgraph.org/distrib/jsxgraph.css" />
+        hints: |-
+            La limite d'une somme de suite est égal à la somme des limites des deux suites.
+
+            .. math::
+
+                \lim_{n\to\infty} (s_n + r_n) = \lim_{n\to\infty} s_n + \lim_{n\to\infty} r_n
+        name: ''
+        success_message: |-
+            .. raw:: html
+
+                <div id='jxgbox1' class='jxgbox mb-3' style='width:600px; height:400px;'></div>
+                    <script type='text/javascript'>
+                    var b = JXG.JSXGraph.initBoard('jxgbox1', {boundingbox: [-1, 4, 11, 1], axis: true});
+
+                    for (let i = 0; i < 15; i++) {
+                        b.create('point', [i, 3-1/(i+1)], {size: 2});
+                    }
+                    b.create('functiongraph', [function(x){return 3;}, 0, 20], {dash: 2});
+                </script>
+        answers:
+        - '3'
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

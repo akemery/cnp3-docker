@@ -1,0 +1,88 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- moyen
+- expLog
+contact_url: ''
+context: croissance et décroissance
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Fonctions exponentielles - 7
+network_grading: false
+problems:
+    q1:
+        choices:
+        -   text: La fonction est strictement croissante
+        -   text: La fonction est croissante
+        -   valid: true
+            text: La fonction est strictement décroissante
+        -   text: La fonction est décroissante
+        -   text: La fonction est croissante et décroissante
+        type: multiple_choice
+        header: |-
+            Quelle est la croissance de cette fonction ?
+
+            .. math::
+                f : \mathbb{R} \to \mathbb{R} : x \mapsto \sqrt[3]{-e-e^x}
+
+            Choisisser la réponse qui convient le mieux.
+
+            .. raw:: html
+
+                <script type="text/javascript" charset="UTF-8" src="//jsxgraph.org/distrib/jsxgraphcore.js"></script>
+                <link rel="stylesheet" type="text/css" href="//jsxgraph.org/distrib/jsxgraph.css" />
+        limit: 0
+        name: ''
+        success_message: |-
+            .. raw:: html
+
+                <div id='jxgbox1' class='jxgbox mb-3' style='width:600px; height:400px;'></div>
+                    <script type='text/javascript'>
+                    var b = JXG.JSXGraph.initBoard('jxgbox1', {boundingbox: [-10, 2, 10, -12], axis: true});
+                    b.create('functiongraph', [function(x){return Math.cbrt(-Math.E-Math.pow(Math.E,x));},-10,10], {name:'f(x)'});
+                </script>
+    q2:
+        choices:
+        -   text: '1'
+        -   text: '2'
+        -   text: '3'
+        -   text: Une infinité
+            valid: true
+        name: ''
+        limit: 0
+        header: Combien de fois la fonction exponentielle est-elle dérivable ?
+        type: multiple_choice
+    q3:
+        header: |-
+            La fonction exponentielle est-elle convexe ou concave ?
+
+            .. raw:: html
+
+                <script type="text/javascript" charset="UTF-8" src="//jsxgraph.org/distrib/jsxgraphcore.js"></script>
+                <link rel="stylesheet" type="text/css" href="//jsxgraph.org/distrib/jsxgraph.css" />
+        choices:
+        -   valid: true
+            text: Convexe
+        -   text: Concave
+        -   text: Les deux
+        success_message: |-
+            .. raw:: html
+
+                <div id='jxgbox2' class='jxgbox mb-3' style='width:300px; height:300px;'></div>
+                    <script type='text/javascript'>
+                    var b = JXG.JSXGraph.initBoard('jxgbox2', {boundingbox: [-4, 6, 4, -2], axis: true});
+                    b.create('functiongraph', [function(x){return Math.exp(x);},-10,10]);
+                </script>
+        limit: 0
+        type: multiple_choice
+        name: ''
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

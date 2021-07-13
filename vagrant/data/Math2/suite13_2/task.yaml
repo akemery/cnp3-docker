@@ -1,0 +1,57 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- suite
+- moyen
+contact_url: ''
+context: |-
+    Pour les suites suivantes, déterminer si elles convergent (si oui, déterminer
+    la limite), si elles divergent vers :math:`+\infty` ou si elles divergent vers :math:`-\infty`.
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Suites - 13.2
+network_grading: false
+problems:
+    q1:
+        type: math
+        header: |-
+            Calculer la limite de
+
+            .. math::
+
+                s : \mathbb{N} \to \mathbb{R} : n \mapsto \frac{n^2}{2}\sqrt[3]{n}
+
+            .. raw:: html
+
+                <script type="text/javascript" charset="UTF-8" src="//jsxgraph.org/distrib/jsxgraphcore.js"></script>
+                <link rel="stylesheet" type="text/css" href="//jsxgraph.org/distrib/jsxgraph.css" />
+        hints: |-
+            La limite d'un produit de suites est égale au produit des limites des suites
+
+            .. math::
+
+                \lim_{n\to\infty} s_nr_n = \left(\lim_{n\to\infty} s_n \right) . \left(\lim_{n\to\infty} r_n\right)
+        name: ''
+        success_message: |-
+            .. raw:: html
+
+                <div id='jxgbox1' class='jxgbox mb-3' style='width:600px; height:400px;'></div>
+                    <script type='text/javascript'>
+                    var b = JXG.JSXGraph.initBoard('jxgbox1', {boundingbox: [-1, 100, 20, -10], axis: true});
+
+                    for (let n = 0; n < 50; n++) {
+                        b.create('point', [n, (Math.pow(n,2)/2)*Math.cbrt(n)], {size: 2});
+                    }
+                </script>
+        answers:
+        - +\infty
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

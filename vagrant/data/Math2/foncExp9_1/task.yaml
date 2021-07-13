@@ -1,0 +1,52 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- expLog
+- moyen
+contact_url: ''
+context: Intégrale définie
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Fonctions exponentielles - 9.1
+network_grading: false
+problems:
+    q1:
+        type: math
+        header: |-
+            Calculer l'intégrale définie de la fonction intégrable suivante
+
+            .. math::
+                \int_{0}^{1} (2e^x+1) \, \mathrm{d}x
+        hints: |-
+            Utiliser la linéarité des intégrales
+
+            .. math::
+
+                \int (af(x)+bg(x)) \, \mathrm{d}x = a\int f(x) \, \mathrm{d}x + b\int g(x) \, \mathrm{d}x
+
+            Rappel:
+
+            .. math::
+
+                \int e^x \, \mathrm{d}x = e^x + C
+
+            Rappel 2: intégrale définie
+
+            .. math::
+
+                \int_a^b f(x) \, \mathrm{d}x = [F(x)]_a^b = F(b) - F(a)
+
+            où :math:`F(x)` est la primitive de :math:`f(x)`
+        name: ''
+        answers:
+        - 2e-1
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

@@ -1,0 +1,38 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- expLog
+- facile
+contact_url: ''
+context: |-
+    En utilisant les propriétés élémentaires des fonctions exponentielles, calculer
+    les nombres suivants sans avoir recours à une calculatrice.
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Fonctions exponentielles - 1.1
+network_grading: false
+problems:
+    q1:
+        hints: |-
+            Indice:
+
+            :math:`\sqrt{x^2} = x` et :math:`x^{ab} = (x^a)^b`
+        error_message: |-
+            Indice:
+
+            :math:`\sqrt{x^2} = x` et :math:`x^{ab} = (x^a)^b`
+        type: math
+        answers:
+        - '64'
+        name: ''
+        header: Calculer le nombre entier :math:`\sqrt{2^{12}}`
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

@@ -1,0 +1,52 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- foncReci
+- difficile
+contact_url: ''
+context: En utilisant l'injectivité des fonctions exponentielles, résoudre cette équation
+    dans :math:`\mathbb{R}`.
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Fonctions réciproques - 2.6
+network_grading: false
+problems:
+    q1:
+        type: math
+        header: |-
+            Résoudre l'équation.
+
+            .. math::
+                \frac{3^{x^2-1}}{2^{x^2}} = 2
+        hints: |-
+            **Etape 1**: se ramener a une expression ne contenant que des exposant :math:`x^2`
+
+            .. math::
+
+                a^{b+c} = a^ba^c
+
+            **Etape 2**: ramener les deux exponentielles à une seule exponentielle d'exposant :math:`x^2`
+
+            .. math::
+
+                \frac{a^b}{c^b} = \left(\frac{a}{c}\right)^b
+
+            **Etape 3**: résoudre l'équation exponentielle simple
+
+            .. math::
+
+                \log_a(a^x) = x
+        answers:
+        - \sqrt{\frac{\log\left(6\right)}{\log\left(\frac{3}{2}\right)}}
+        - -\sqrt{\frac{\log\left(6\right)}{\log\left(\frac{3}{2}\right)}}
+        name: Equation
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

@@ -1,0 +1,63 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- expLog
+- difficile
+contact_url: ''
+context: Intégrale définie
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Fonctions exponentielles - 9.8
+network_grading: false
+problems:
+    q1:
+        type: math
+        header: |-
+            Calculer l'intégrale définie de la fonction intégrable suivante
+
+            .. math::
+                \int_{0}^{\frac{\pi}{2}} \sin(x)e^x \, \mathrm{d}x
+        hints: |-
+            Pour résoudre ce genre d'intégrale la méthode consiste à appliquer deux fois l'intégration par partie pour retomber sur l'intégrale de départ. Ensuite résoudre l'équation qu'on obtient pour trouver la valeur de l'intégrale.
+
+            **Etape 1**: IPP 1
+
+            .. math::
+
+                \int_a^b f'(x)g(x) \, \mathrm{d}x =
+                [f(x)g(x)]_a^b - \int_a^b f(x)g'(x) \, \mathrm{d}x
+
+            en prenant dans ce cas-ci :math:`g(x) = sin(x)` et :math:`f(x) = e^x`.
+
+            **Etape 2**: IPP 2
+
+            Refaire une intégration par partie en partant de l'intégrale
+
+            .. math::
+
+                \int_0^{\frac{\pi}{2}} \cos(x)e^x \, \mathrm{d}x
+
+            **Etape 3**: résoudre l'équation en :math:`I`
+
+            .. math::
+
+                I = e^{\frac{\pi}{2}} + 1 - I
+
+            où
+
+            .. math::
+
+                I = \int_{0}^{\frac{\pi}{2}} \sin(x)e^x \, \mathrm{d}x
+        name: ''
+        answers:
+        - \frac{1}{2}\left(1+e^{\frac{\pi}{2}}\right)
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

@@ -1,0 +1,58 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- suite
+- facile
+contact_url: ''
+context: Déterminer :math:`s_0`, :math:`s_1` et :math:`s_3`.
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Suites - 1.2
+network_grading: false
+problems:
+    q1:
+        type: math
+        header: |-
+            Calculer :math:`s_0` de cette suite
+
+            .. math::
+
+                s_n = \frac{2}{\sqrt{n+1}}
+        hints: Remplacer :math:`n` par 0.
+        name: ''
+        answers:
+        - '2'
+    q2:
+        name: ''
+        answers:
+        - \sqrt{2}
+        hints: Remplacer :math:`n` par 1.
+        header: |-
+            Calculer :math:`s_1` de cette suite
+
+            .. math::
+
+                s_n = \frac{2}{\sqrt{n+1}}
+        type: math
+    q3:
+        header: |-
+            Calculer le terme de rang 3 de cette suite
+
+            .. math::
+
+                s_n = \frac{2}{\sqrt{n+1}}
+        answers:
+        - '1'
+        type: math
+        hints: Remplacer :math:`n` par 3.
+        name: ''
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

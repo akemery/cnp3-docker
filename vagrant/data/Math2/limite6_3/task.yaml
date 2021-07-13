@@ -1,0 +1,68 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- limite
+- facile
+contact_url: ''
+context: |-
+    Déterminer si la fonction :math:`f(x)` dont le graphe est donné ci-dessous a une limite ou diverge pour x qui tend vers :math:`+\infty` ou :math:`-\infty`.
+
+    .. raw:: html
+
+      <script type="text/javascript" charset="UTF-8" src="//jsxgraph.org/distrib/jsxgraphcore.js"></script>
+      <link rel="stylesheet" type="text/css" href="//jsxgraph.org/distrib/jsxgraph.css" />
+
+    .. raw:: html
+
+      <div id='jxgbox1' class='jxgbox mb-3' style='width:600px; height:375px;'></div>
+      <script type='text/javascript'>
+        var b = JXG.JSXGraph.initBoard('jxgbox1', {boundingbox: [-4, 3, 4, -2], axis: true});
+        b.create('functiongraph', [function(x){return x/2;},-4,2]);
+        b.create('functiongraph', [function(x){return 5 - 3*x/2;},2,4]);
+        b.create('circle', [[2,1], 0.06], {strokeWidth:1});
+        b.create('circle', [[2,2], 0.06], {strokeWidth:1});
+        b.create('circle', [[2,-1], 0.03], {strokeWidth:4});
+      </script>
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Limites - 6.3
+network_grading: false
+problems:
+    q1:
+        hints: ''
+        type: math
+        answers:
+        - -\infty
+        name: ''
+        header: |-
+            Que vaut
+
+            .. math::
+
+                \lim_{x \to +\infty} f(x)
+
+            Si la fonction ne converge pas et ne diverge pas, entrer le symbole :math:`\emptyset`.
+    q2:
+        header: |-
+            Que vaut
+
+            .. math::
+
+                \lim_{x \to -\infty} f(x)
+
+            Si la fonction ne converge pas et ne diverge pas, entrer le symbole :math:`\emptyset`.
+        type: math
+        answers:
+        - -\infty
+        hints: ''
+        name: ''
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

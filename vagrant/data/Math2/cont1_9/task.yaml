@@ -1,0 +1,73 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- cont
+- moyen
+contact_url: ''
+context: |-
+    Donner le domaine de définition de la fonction dont le graphe est le
+    suivant, puis déterminer si elle est continues ou non. Si elle n'est pas continue, donner
+    l'ensemble des points où elles sont discontinues.
+
+    .. raw:: html
+
+        <script type="text/javascript" charset="UTF-8" src="//jsxgraph.org/distrib/jsxgraphcore.js"></script>
+        <link rel="stylesheet" type="text/css" href="//jsxgraph.org/distrib/jsxgraph.css" />
+
+    .. raw:: html
+
+        <div id='jxgbox2' class='jxgbox mb-3' style='width:500px; height:500px;'></div>
+            <script type='text/javascript'>
+            var b = JXG.JSXGraph.initBoard('jxgbox2', {boundingbox: [-5, 5, 5, -5], axis: true});
+            b.create('functiongraph', [function(x){return -x/2 + 1;},-4,0]);
+            b.create('functiongraph', [function(x){return -x/2 + 2;},2,4]);
+            b.create('circle', [[-4,3], 0.08], {strokeWidth:1});
+            b.create('circle', [[0,1], 0.05], {strokeWidth:4});
+            b.create('circle', [[2,1], 0.05], {strokeWidth:4});
+            b.create('circle', [[4,0], 0.08], {strokeWidth:1});
+            b.create('circle', [[1,2], 0.05], {strokeWidth:4});
+        </script>
+environment_id: databases
+environment_parameters:
+    limits:
+        hard_time: ''
+        memory: '100'
+        time: '30'
+    run_cmd: ''
+environment_type: docker
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Continuité - 1.9
+network_grading: false
+problems:
+    q1:
+        type: code_single_line
+        header: |-
+            Donner le domaine de définition de cette fonction en suivant ces règles:
+
+              - Utiliser la lettre U pour l'union
+              - Utiliser les symboles [ et ] pour les intervalles compris et non compris
+              - Utiliser les symboles { et } pour les ensembles et singletons
+              - Exclure des points avec \\{...}
+
+            Exemple:
+              - ]-10;-2]\\{-4;-3} U {1} U [2;3[
+        name: Domaine de définition
+        default: ''
+    q2:
+        default: ''
+        name: Ensemble de discontinuité
+        header: |-
+            Donner l'ensemble des points où la fonction n'est pas continue. L'ensemble peut être vide.
+
+            Exemple:
+              - {-1;0;2}
+              - {}
+        type: code_single_line
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

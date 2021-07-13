@@ -1,0 +1,39 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- moyen
+- foncLog
+- prob
+contact_url: ''
+context: Magnitude de tremblement de terre.
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Applications - 4.1
+network_grading: false
+problems:
+    q1:
+        type: math
+        header: |-
+            Quel est le moment d'un tremblement de terre d'une magnitude de 4,5 ?
+            Entrer votre réponse avec au moins 4 chiffres significatifs.
+
+            rappel:
+
+            .. math::
+
+                M_w = \frac{2}{3}\log_{10}(M_0) - 6,07
+        hints: L'inconnue est :math:`M_0` et :math:`M_w` vaut 4,5.
+        tolerance: 1000000000000.0
+        name: ''
+        answers:
+        - 7.16143\cdot10^{15}
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

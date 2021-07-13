@@ -1,0 +1,55 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- limite
+- moyen
+contact_url: ''
+context: La limite suivante existe.
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Limites - 1.4
+network_grading: false
+problems:
+    q1:
+        type: math
+        header: |-
+            Calculer cette limite.
+
+            .. math::
+
+                \lim_{x\to 0} \frac{x^2+x}{\sqrt{x}}
+
+            .. raw:: html
+
+                <script type="text/javascript" charset="UTF-8" src="//jsxgraph.org/distrib/jsxgraphcore.js"></script>
+                <link rel="stylesheet" type="text/css" href="//jsxgraph.org/distrib/jsxgraph.css" />
+        hints: |-
+            lorsqu'il y a une racine au dénominateur, il peut être utile de multiplier et diviser par la racine pour enlever l'indétermination.
+
+            Exemple:
+
+            .. math::
+
+                \frac{3x+1}{\sqrt{x}} = \frac{3x+1}{\sqrt{x}}.\frac{\sqrt{x}}{\sqrt{x}} = \frac{(3x+1)\sqrt{x}}{x}
+        name: Limite
+        success_message: |-
+            .. raw:: html
+
+                <div id='jxgbox1' class='jxgbox mb-3' style='width:600px; height:400px;'></div>
+                    <script type='text/javascript'>
+                    var b = JXG.JSXGraph.initBoard('jxgbox1', {boundingbox: [-4, 3, 4, -2], axis: true});
+                    b.create('functiongraph', [function(x){return (x*x+x)/(Math.sqrt(x));},-6,6]);
+                    b.create('point', [0,0], {name:"limite"})
+                </script>
+        answers:
+        - '0'
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

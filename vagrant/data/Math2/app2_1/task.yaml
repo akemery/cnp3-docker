@@ -1,0 +1,67 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- difficile
+- expLog
+- prob
+- random
+contact_url: ''
+context: |-
+    .. raw:: html
+
+        Supposons que vous habitez aux États-Unis et que vous détectez une activité
+        de rayonnement due au radon 222 de <b><span id="p1"></span></b> Bq/m³
+        . Pendant combien de jours devez-vous vous
+        tenir à distance de votre habitation ?
+
+    .. raw:: html
+
+        <script>
+        var taux = 100*parseInt(input["@random"][0]*10+10);
+        document.getElementById("p1").innerHTML = taux;
+        </script>
+environment_id: math
+environment_parameters:
+    limits:
+        hard_time: ''
+        memory: '100'
+        time: '30'
+    run_cmd: ''
+environment_type: docker
+evaluate: best
+file: ''
+groups: false
+input_random: '1'
+name: Applications - 2.1
+network_grading: false
+problems:
+    q1:
+        type: math
+        header: |-
+            Sachant que le radon 222 a une demi-vie de :math:`3,824` jours et qu'un niveau acceptable correspond à une détection de 400 :math:`\rm{Bq}/m^3`, combien de temps devez-vous attendre avant de revenir dans votre habitation ? Donner une réponse entière pour le nombre de jour.
+
+            .. raw:: html
+
+                <script type="text/javascript" charset="UTF-8" src="//jsxgraph.org/distrib/jsxgraphcore.js"></script>
+                <link rel="stylesheet" type="text/css" href="//jsxgraph.org/distrib/jsxgraph.css" />
+        hints: |-
+            Le niveau de radiation en fonction du temps varie en suivant une exponentielle de base 1/2 exposant :math:`x` sur la demi-vie, multipliée par le niveau initial.
+
+            .. math::
+
+                f(t) = f_i \left(\frac{1}{2}\right)^{\frac{t}{t_{1/2}}}
+
+            Une fois cette fonction trouvée il faut l'égaler au niveau qu'on veut atteindre et résoudre l'équation pour trouver :math:`t`.
+
+            Rappel:
+
+            .. math::
+
+                \log_a(b) = \frac{\log_{10}(b)}{\log_{10}(a)} = \frac{\ln(b)}{\ln(a)}
+        name: ''
+regenerate_input_random: 'on'
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

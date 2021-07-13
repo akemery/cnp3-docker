@@ -1,0 +1,40 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- expLog
+- difficile
+contact_url: ''
+context: Calculer la dérivée de la fonction dérivable suivante.
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Fonctions exponentielles - 5.7
+network_grading: false
+problems:
+    q1:
+        type: math
+        header: Calculer la dérivée de :math:`f(x) = e^{\frac{1}{x^2+1}}`
+        hints: |-
+            Il s'agit de la dérivée d'une composée de fonctions et de la dérivée de l'inverse d'une fonction, :math:`f(x) = g\left(\frac{1}{h(x)}\right)`
+
+            .. math::
+
+                f'(x) = g'\left(\frac{1}{h(x)}\right).\frac{-h'(x)}{h^2(x)}
+
+            car
+
+            .. math::
+
+                \left( \frac{1}{h(x)} \right)' = \frac{-h'(x)}{h^2(x)}
+        name: ''
+        answers:
+        - \frac{-2xe^{\frac{1}{x^2+1}}}{\left(x^2+1\right)^2}
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

@@ -1,0 +1,34 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- expLog
+- moyen
+contact_url: ''
+context: Calculer la dérivée de la fonction dérivable suivante.
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Fonctions exponentielles - 5.4
+network_grading: false
+problems:
+    q1:
+        type: math
+        header: Calculer la dérivée de :math:`f(x) = \frac{e^x}{x^2+1}`
+        hints: |-
+            Il s'agit de la dérivée d'un quotient, :math:`f(x) = \frac{g(x)}{h(x)}`
+
+            .. math::
+
+                f'(x) = \frac{g'(x).h(x) - g(x).h'(x)}{h^2(x)}
+        name: ''
+        answers:
+        - \frac{e^x\left(x-1\right)^2}{\left(x^2+1\right)^2}
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

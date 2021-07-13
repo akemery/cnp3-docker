@@ -10,7 +10,7 @@ mongo_opt:
     host: localhost
 plugins: []
 superadmins:
-- eka
+- eassogba
 tasks_directory: /var/www/html/inginious_courses
 use_minified_js: true
 webterm: "localhost"

@@ -1,0 +1,65 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- expLog
+- moyen
+contact_url: ''
+context: Pour les fonctions suivantes, déterminer si elles convergent ou divergent
+    pour :math:`x\to-\infty` et pour :math:`x\to+\infty`.
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Fonctions exponentielles - 4.4
+network_grading: false
+problems:
+    q1:
+        type: math
+        header: |-
+            Pour :math:`f(x) = \frac{2^x}{2x}`, que vaut
+
+            .. math::
+
+                \lim_{x\to+\infty} f(x)
+
+            .. raw:: html
+
+                <script type="text/javascript" charset="UTF-8" src="//jsxgraph.org/distrib/jsxgraphcore.js"></script>
+                <link rel="stylesheet" type="text/css" href="//jsxgraph.org/distrib/jsxgraph.css" />
+        hints: |-
+            Lorsqu'on a un cas d'indétermination ( :math:`\frac{\infty}{\infty}` ou :math:`\frac{0}{0}` ) comme ici en :math:`x \to +\infty` on peut appliquer la règle de l'hospital.
+
+            .. math::
+
+                \lim_{x\to+\infty} \frac{f(x)}{g(x)} = \frac{f'(x)}{g'(x)}
+        name: ''
+        success_message: |-
+            .. raw:: html
+
+                <div id='jxgbox1' class='jxgbox mb-3' style='width:600px; height:600px;'></div>
+                    <script type='text/javascript'>
+                    var b = JXG.JSXGraph.initBoard('jxgbox1', {boundingbox: [-8, 12, 8, -4], axis: true});
+                    b.create('functiongraph', [function(x){return Math.pow(2,x)/(2*x);},-10,10]);
+                </script>
+        answers:
+        - \infty
+    q2:
+        name: ''
+        answers:
+        - '0'
+        hints: ''
+        header: |-
+            Pour :math:`f(x) = \frac{2^x}{2x}`, que vaut
+
+            .. math::
+
+                \lim_{x\to-\infty} f(x)
+        type: math
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

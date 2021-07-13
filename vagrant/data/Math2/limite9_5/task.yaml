@@ -1,0 +1,54 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- limite
+- moyen
+contact_url: ''
+context: |-
+    En utilisant les propriétés des limites et des divergences, déterminer les
+    limites ou les divergences suivantes.
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Limites - 9.5
+network_grading: false
+problems:
+    q1:
+        type: math
+        header: |
+            Calculer
+
+            .. math::
+
+                \lim_{x \to 2} \frac{2x}{x^2-4x+4}
+
+            .. raw:: html
+
+                <script type="text/javascript" charset="UTF-8" src="//jsxgraph.org/distrib/jsxgraphcore.js"></script>
+                <link rel="stylesheet" type="text/css" href="//jsxgraph.org/distrib/jsxgraph.css" />
+        hints: |-
+            Lorsque une limite tend vers un dénominateur nul (exemple: :math:`\frac{2}{0}`) il faut déterminer si elle tend vers :math:`+\infty` ou :math:`-\infty` en déterminant le signe du dénominateur.
+
+            Ça peut être utile de tracer le graphe du dénominateur.
+
+            Si le signe à gauche et à droite du dénominateur sont différents alors la limite n'existe pas sinon elle existe.
+        name: ''
+        success_message: |-
+            .. raw:: html
+
+                <div id='jxgbox1' class='jxgbox mb-3' style='width:600px; height:600px;'></div>
+                    <script type='text/javascript'>
+                    var b = JXG.JSXGraph.initBoard('jxgbox1', {boundingbox: [-0.5, 20, 4, -5], axis: true});
+                    b.create('functiongraph', [function(x){return (2*x)/(x*x-4*x+4);},-0.5,9.5]);
+                </script>
+        answers:
+        - +\infty
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

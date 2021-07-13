@@ -1,0 +1,40 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- expLog
+- moyen
+contact_url: ''
+context: Calculer la dérivée de la fonction dérivable suivante.
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Fonctions exponentielles - 5.5
+network_grading: false
+problems:
+    q1:
+        type: math
+        header: Calculer la dérivée de :math:`f(x) = e^{3x+1} + e^{x^3-x}`
+        hints: |-
+            Il s'agit de la dérivée d'une somme de composées de fonctions. Par linéarité de la dérivée, la dérivée de la somme est égale à la somme des dérivées.
+
+            .. math::
+
+                f'(x) = (g(x)+h(x))' = g'(x) + h'(x)
+
+            Chaque terme est une composée de fonctions, :math:`u(v(x))`
+
+            .. math::
+
+                (u(v(x)))' = u'(v(x)).v'(x)
+        name: ''
+        answers:
+        - 3e^{3x+1}+\left(3x^2-1\right)e^{x^3-x}
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

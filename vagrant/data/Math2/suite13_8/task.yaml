@@ -1,0 +1,60 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- suite
+- moyen
+contact_url: ''
+context: |-
+    Pour les suites suivantes, déterminer si elles convergent (si oui, déterminer
+    la limite), si elles divergent vers :math:`+\infty` ou si elles divergent vers :math:`-\infty`.
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Suites - 13.8
+network_grading: false
+problems:
+    q1:
+        type: math
+        header: |-
+            Calculer la limite de
+
+            .. math::
+
+                s : \mathbb{N}_0 \to \mathbb{R} : n \mapsto \frac{\sqrt{5n}}{2n}
+
+            .. raw:: html
+
+                <script type="text/javascript" charset="UTF-8" src="//jsxgraph.org/distrib/jsxgraphcore.js"></script>
+                <link rel="stylesheet" type="text/css" href="//jsxgraph.org/distrib/jsxgraph.css" />
+        hints: |-
+            Remplacer les racines par des exposants fractionnaires et la fraction :math:`\frac{n^a}{n^b}` par :math:`n^{a-b}`
+
+            Rappel:
+
+            .. math::
+
+                \sqrt[a]{n} = n^{\frac{1}{a}}
+        name: ''
+        success_message: |-
+            .. raw:: html
+
+                <div id='jxgbox1' class='jxgbox mb-3' style='width:600px; height:400px;'></div>
+                    <script type='text/javascript'>
+                    var b = JXG.JSXGraph.initBoard('jxgbox1', {boundingbox: [-1, 2, 30, -2], axis: true});
+
+                    for (let n = 0; n < 50; n++) {
+                        b.create('point', [n, (Math.sqrt(5*n))/(2*n)], {size: 2});
+                    }
+                    b.create('functiongraph', [function(x){return 0;}, 0, 50], {dash: 2});
+                </script>
+        answers:
+        - '0'
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

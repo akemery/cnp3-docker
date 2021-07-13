@@ -1,0 +1,53 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- limite
+- moyen
+contact_url: ''
+context: |-
+    Voici le graphe de la fonction :math:`f(x)`
+
+    .. raw:: html
+
+        <script type="text/javascript" charset="UTF-8" src="//jsxgraph.org/distrib/jsxgraphcore.js"></script>
+        <link rel="stylesheet" type="text/css" href="//jsxgraph.org/distrib/jsxgraph.css" />
+
+    .. raw:: html
+
+        <div id='jxgbox1' class='jxgbox mb-3' style='width:600px; height:375px;'></div>
+            <script type='text/javascript'>
+            var b = JXG.JSXGraph.initBoard('jxgbox1', {boundingbox: [-4, 3, 4, -2], axis: true});
+            b.create('functiongraph', [function(x){return -Math.log(x+1);},-1,4]);
+            b.create('line', [[-1,0],[-1,1]], {dash:2, strokeWidth:1})
+        </script>
+
+    Déterminer si la limite suivante existe.
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Limites - 12.5
+network_grading: false
+problems:
+    q1:
+        type: math
+        header: |-
+            Calculer
+
+            .. math::
+
+                \lim_{x\to0} f(x)
+
+            Si la limite n'existe pas, entrer :math:`\emptyset`
+        hints: ''
+        name: ''
+        answers:
+        - '0'
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

@@ -1,0 +1,38 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- expLog
+- facile
+contact_url: ''
+context: |-
+    En utilisant les propriétés élémentaires des fonctions exponentielles, calculer
+    les nombres suivants sans avoir recours à une calculatrice.
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Fonctions exponentielles - 1.3
+network_grading: false
+problems:
+    q1:
+        type: math
+        header: Calculer le nombre entier :math:`(5^{-\sqrt{2}+3})^2.5^{2\sqrt{2}-4}`
+        hints: |-
+            Commencer par exprimer ce nombre sous la forme d'un produit d'exponentielles sans exposants sommes et sans parenthèses puis simplifier.
+
+            .. math::
+
+                (x^a)^b = x^{a.b}\\
+                x^{a+b} = x^a.x^b\\
+                x^a.x^{-a} = 1
+        name: ''
+        answers:
+        - '25'
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

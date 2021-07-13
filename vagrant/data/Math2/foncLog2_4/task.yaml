@@ -1,0 +1,41 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- foncLog
+- moyen
+contact_url: ''
+context: |-
+    En utilisant une calculatrice et la formule de changement de base pour les
+    logarithmes, trouver une approximation des nombres suivants à 0.001 près.
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Fonctions logarithmes - 2.4
+network_grading: false
+problems:
+    q1:
+        type: math
+        header: |-
+            Calculer la forme décimale du nombre suivant à 0.001 près.
+
+            .. math::
+                \log_{\pi}(e^{-3})
+        hints: |-
+            Formule de changement de base:
+
+            .. math::
+
+                \log_a(b) = \frac{\log_{10}(b)}{\log_{10}(a)} = \frac{\ln(b)}{\ln(a)}
+        tolerance: 0.001
+        name: Propriétés
+        answers:
+        - '2.621'
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

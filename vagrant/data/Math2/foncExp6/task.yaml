@@ -1,0 +1,61 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- moyen
+- expLog
+contact_url: ''
+context: Tangente à un graphe
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Fonctions exponentielles - 6
+network_grading: false
+problems:
+    q1:
+        type: math
+        header: |-
+            Donner l'équation cartésienne de la tangente au graphe de la fonction :math:`f` donnée ci-dessous au point d'abscisse :math:`x=1`.
+
+            .. math::
+                f : \mathbb{R} \to \mathbb{R} : x \mapsto e^{-x}.(x+1)
+
+            .. raw:: html
+
+                <script type="text/javascript" charset="UTF-8" src="//jsxgraph.org/distrib/jsxgraphcore.js"></script>
+                <link rel="stylesheet" type="text/css" href="//jsxgraph.org/distrib/jsxgraph.css" />
+        hints: |-
+            **Etape 1**: calculer la pente de la tangente :math:`a = f'(1)`
+
+            Il s'agit de la dérivée d'un produit
+
+            .. math::
+
+                (u(x)v(x))' = u'(x)v(x) + u(x)v'(x)
+
+            **Etape 2**: calculer l'ordonnée à l'origine :math:`b`
+
+            .. math::
+
+                y = ax+b \Leftrightarrow f(1) = a.1 + b \Leftrightarrow f(1) = f'(1) + b
+        name: ''
+        success_message: |-
+            .. raw:: html
+
+              <div id='jxgbox1' class='jxgbox mb-3' style='width:600px; height:400px;'></div>
+              <script type='text/javascript'>
+                var b = JXG.JSXGraph.initBoard('jxgbox1', {boundingbox: [-2, 2, 4, -2], axis: true, keepaspectratio: true});
+                b.create('functiongraph', [function(x){return Math.exp(-x)*(x+1);}, -2, 4]);
+                b.create('functiongraph', [function(x){return -x/Math.exp(1) + (3/Math.exp(1));}, -2, 4], {strokeColor:'#00ff00'});
+                b.create('point', [1, Math.exp(-1)*2], {name:'y = -x/e + 3/e'});
+              </script>
+        answers:
+        - -\frac{1}{e}x+\frac{3}{e}
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

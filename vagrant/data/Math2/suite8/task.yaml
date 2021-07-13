@@ -1,0 +1,77 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- prob
+- suite
+- moyen
+- random
+contact_url: ''
+context: |-
+    .. raw:: html
+
+        Considérons le problème suivant : nous disposons de <b><span id="p1"></span></b> euro et nous avons la possibilité de déposer cette somme sur un compte d'une première banque qui nous propose des intérêts annuels simples de <b><span id="p2"></span></b>% ou d'une seconde banque proposant des intérêts annuels composés de <b><span id="p3"></span></b>%. On considère un temps de placement de <b><span id="p4"></span></b> ans.
+
+    .. raw:: html
+
+        <script>
+            var somme = 1000*parseInt(input["@random"][0]*10+5);
+            var pourc1 = parseInt(input["@random"][1]*10+15)/10;
+            var pourc2 = parseInt(input["@random"][2]*10+15)/10;
+            var duree = parseInt(input["@random"][3]*20+10);
+            document.getElementById("p1").innerHTML = somme;
+            document.getElementById("p2").innerHTML = pourc1;
+            document.getElementById("p3").innerHTML = pourc2;
+            document.getElementById("p4").innerHTML = duree;
+        </script>
+environment_id: math
+environment_parameters:
+    limits:
+        hard_time: ''
+        memory: '100'
+        time: '30'
+    run_cmd: ''
+environment_type: docker
+evaluate: best
+file: ''
+groups: false
+input_random: '4'
+name: Suites - 8
+network_grading: false
+problems:
+    q1:
+        type: math
+        header: |-
+            Quelle somme auront-nous à la fin du placement si on choisit la première banque ?
+
+            .. raw:: html
+
+                <script type="text/javascript" charset="UTF-8" src="//jsxgraph.org/distrib/jsxgraphcore.js"></script>
+                <link rel="stylesheet" type="text/css" href="//jsxgraph.org/distrib/jsxgraph.css" />
+        hints: |-
+            La somme évoluera comme une suite arithmétique de raison :math:`r = 200` et de terme initial :math:`s_0 = 10000`.
+
+            On sait que
+
+            .. math::
+
+                s_n = s_0 + rn
+        name: ''
+    q2:
+        name: ''
+        hints: |-
+            La somme évoluera comme une suite géométrique de raison :math:`q = 1.019` et de terme initial :math:`s_0 = 10000`.
+
+            On sait que
+
+            .. math::
+
+                s_n = s_0 q^n
+        header: Quelle somme auront-nous à la fin du placement si on choisit la deuxième
+            banque ? Entrer votre réponse avec au moins 5 chiffres significatifs.
+        type: math
+regenerate_input_random: 'on'
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

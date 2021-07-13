@@ -1,0 +1,50 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- limite
+- facile
+contact_url: ''
+context: |-
+    Déterminer si la fonction converge ou diverge pour x qui tend vers
+    :math:`+\infty` ou pour x qui tend vers :math:`-\infty`. Si elles converge, donner la limite. Si elle diverge, donner
+    le type de divergence (vers :math:`+\infty` ou vers :math:`-\infty`). N'hésitez pas à vous aider d'un graphe.
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Limites - 7.3
+network_grading: false
+problems:
+    q1:
+        type: math
+        header: |-
+            Que vaut
+
+            .. math::
+
+                \lim_{x \to -\infty} 3x+5
+
+            .. raw:: html
+
+                <script type="text/javascript" charset="UTF-8" src="//jsxgraph.org/distrib/jsxgraphcore.js"></script>
+                <link rel="stylesheet" type="text/css" href="//jsxgraph.org/distrib/jsxgraph.css" />
+        hints: ''
+        name: ''
+        success_message: |-
+            .. raw:: html
+
+                <div id='jxgbox1' class='jxgbox mb-3' style='width:600px; height:400px;'></div>
+                    <script type='text/javascript'>
+                    var b = JXG.JSXGraph.initBoard('jxgbox1', {boundingbox: [-6, 4, 6, -4], axis: true});
+                    b.create('functiongraph', [function(x){return 3*x+5;},-6,6]);
+                </script>
+        answers:
+        - -\infty
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

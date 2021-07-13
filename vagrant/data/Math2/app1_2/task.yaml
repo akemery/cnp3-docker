@@ -1,0 +1,75 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- expLog
+- moyen
+- prob
+- random
+contact_url: ''
+context: |-
+    .. raw:: html
+
+        Vous empruntez <b><span id="par1"></span></b> euros pour acheter votre première maison avec des
+        intérêts composés annuels de <b><span id="par2"></span></b>%. Si vous souhaitez éviter de devoir rembourser plus de <b><span id="par3"></span></b> euros, après combien d'années au plus devez-vous rembourser l'emprunt ?
+
+    .. raw:: html
+
+        <script>
+            var par1 = 100000*parseInt(input["@random"][0]*10+1);
+            var par2 = 2+parseInt(input["@random"][1]*30)/10;
+            var par3 = (par1*(parseInt(input["@random"][2]*10+1)/10+1)).toFixed();
+            document.getElementById("par1").innerHTML = par1;
+            document.getElementById("par2").innerHTML = par2;
+            document.getElementById("par3").innerHTML = par3;
+        </script>
+environment_id: math
+environment_parameters:
+    limits:
+        hard_time: ''
+        memory: '100'
+        time: '30'
+    run_cmd: ''
+environment_type: docker
+evaluate: best
+file: ''
+groups: false
+input_random: '3'
+name: Applications - 1.2
+network_grading: false
+problems:
+    q1:
+        type: math
+        header: |-
+            Entrer un nombre d'années entier.
+
+            .. raw:: html
+
+                <script type="text/javascript" charset="UTF-8" src="//jsxgraph.org/distrib/jsxgraphcore.js"></script>
+                <link rel="stylesheet" type="text/css" href="//jsxgraph.org/distrib/jsxgraph.css" />
+        hints: |-
+            Pour résoudre ce genre de problème il faut se rendre compte que la somme d'argent est une fonction exponentielle de base :math:`1+p` ou :math:`p` est le pourcentage (par exemple 1,02 si :math:`p=2\%`), multipliée par la somme au temps 0.
+
+            .. math::
+
+                f(x) = f_i(1+p)^x
+
+            Une fois la fonction représentant la somme d'argent au cours du temps trouvée, il faut résoudre l'équation en l'égalant à 300000 dans ce cas-ci.
+
+            .. math::
+
+                f_i(1+p)^x = f_f
+
+            Pour cela il va falloir faire appel au logarithmes.
+
+            Rappel:
+
+            .. math::
+
+                \log_a(b) = \frac{\log_{10}(b)}{\log_{10}(a)} = \frac{\ln(b)}{\ln(a)}
+        name: ''
+regenerate_input_random: 'on'
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

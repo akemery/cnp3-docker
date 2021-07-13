@@ -1,0 +1,38 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- foncLog
+- moyen
+contact_url: ''
+context: |-
+    En utilisant les propriétés élémentaires des fonctions logarithmes, calculer le nombre
+    suivant sans avoir recours à une calculatrice.
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Fonctions logarithmes - 1.3
+network_grading: false
+problems:
+    q1:
+        type: math
+        header: |-
+            Calculer le nombre suivant.
+
+            .. math::
+                3\ln(\frac{1}{\sqrt{e}})
+        hints: |-
+            .. math::
+
+                \ln(e^b) = b\ln(e) = b
+        name: Propriétés
+        answers:
+        - -\frac{3}{2}
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

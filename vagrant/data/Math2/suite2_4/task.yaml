@@ -1,0 +1,59 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- suite
+- facile
+contact_url: ''
+context: Suite arithmétique
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Suites - 2.4
+network_grading: false
+problems:
+    q1:
+        type: math
+        header: |-
+            Calculer le premier terme d'une suite telle que
+
+            .. math::
+
+                s_n = 3n
+        hints: Remplacer :math:`n` par 0.
+        name: ''
+        answers:
+        - '0'
+    q2:
+        name: ''
+        answers:
+        - '3'
+        hints: La raison est la différence commune entre chaques termes consécutifs
+            d'une suite arithmétique.
+        header: |-
+            Calculer la raison d'une suite telle que
+
+            .. math::
+
+                s_n = 3n
+        type: math
+    q3:
+        header: |-
+            Calculer le terme d'ordre 20 d'une suite telle que
+
+            .. math::
+
+                s_n = 3n
+        answers:
+        - '60'
+        type: math
+        hints: Remplacer :math:`n` par 20.
+        name: ''
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

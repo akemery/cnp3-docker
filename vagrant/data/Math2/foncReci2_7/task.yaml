@@ -1,0 +1,55 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- foncReci
+- moyen
+contact_url: ''
+context: En utilisant l'injectivité des fonctions exponentielles, résoudre cette équation
+    dans :math:`\mathbb{R}`.
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Fonctions réciproques - 2.7
+network_grading: false
+problems:
+    q1:
+        type: math
+        header: |-
+            Résoudre l'équation.
+
+            .. math::
+                2(\frac{25}{4})^{2x} - 7(\frac{25}{4})^x + 5 = 0
+        hints: |-
+            **Etape 1** Simplifier
+
+            Transformer cette expression en un polynôme en :math:`\left(\frac{25}{4}\right)^x`
+
+            .. math::
+
+                \left(\frac{25}{4}\right)^{2x} = \left(\left(\frac{25}{4}\right)^x\right)^2
+
+            **Etape 2** Poser :math:`y`
+
+            On pose :math:`y = \left(\frac{25}{4}\right)^x` et on résous l'équation trouvée en :math:`y`
+
+            **Etape 3**
+
+            Finalement on trouve les réponses finales en résolvant les équations
+
+            .. math::
+
+                y_i = \left(\frac{25}{4}\right)^x
+
+            où :math:`y_i` sont les solutions trouvée à l'étape 2.
+        name: Equation
+        answers:
+        - \frac{1}{2}
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

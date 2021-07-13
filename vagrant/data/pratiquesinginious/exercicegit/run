@@ -1,0 +1,225 @@
+#!/bin/python3
+
+# Script d'interface entre INGInious et des tests unitaires écrits à l'aide de CUnit
+# Auteurs : Mathieu Xhonneux, Anthony Gégo, Cyril Pletinckx, Minh-Phuong Tran
+# Licence : GPLv3
+
+# 30-06-21 Added Git clone capability : Emery K. Assogba
+
+import subprocess, shlex, re, os, yaml, sys
+from inginious import feedback, rst, input
+
+sys.path.append('../../course/common/student/Lizard')
+import lizard
+
+# copy keys to.ssh
+p = subprocess.Popen(shlex.split("bash ./ssh_cmd.sh"), stderr=subprocess.STDOUT, stdout=subprocess.PIPE)
+mv_output = p.communicate()[0].decode('utf-8')
+
+if p.returncode:
+    feedback.set_tag("not_compile", True)
+    feedback.set_global_result("failed")
+    feedback.set_global_feedback("le déplacement de la clé a échoué: voilà le message ``bash ./ssh_cmd.sh`` :")
+    feedback.set_global_feedback(rst.get_codeblock('', mv_output), True)
+    exit(0)
+else:
+    p = subprocess.Popen(shlex.split("getinput url"), stderr=subprocess.STDOUT, stdout=subprocess.PIPE)
+    loc = p.communicate()[0].decode('utf-8')
+    if p.returncode:
+        feedback.set_tag("not_compile", True)
+        feedback.set_global_result("failed")
+        feedback.set_global_feedback("le déplacement de la clé a échoué: voilà le message ``getinput url`` :")
+        feedback.set_global_feedback(rst.get_codeblock('', loc), True)
+        exit(0)
+    else:
+        p = subprocess.Popen(shlex.split("git clone "  + loc +  " progsys"),  stderr=subprocess.STDOUT, stdout=subprocess.PIPE)
+        clone_output = p.communicate()[0].decode('utf-8') 
+        if p.returncode:
+            feedback.set_tag("not_compile", True)
+            feedback.set_global_result("failed")
+            feedback.set_global_feedback("la récupération du repo a échoué: voilà le message ``git clone`` :")
+            feedback.set_global_feedback(rst.get_codeblock('', clone_output), True)
+            exit(0)
+        else:
+            p = subprocess.Popen(shlex.split("bash ./cpy_student_code.sh"),  stderr=subprocess.STDOUT, stdout=subprocess.PIPE)
+            student_code_output = p.communicate()[0].decode('utf-8')
+            if p.returncode:
+                feedback.set_tag("not_compile", True)
+                feedback.set_global_result("failed")
+                feedback.set_global_feedback("la récupération du repo a échoué: voilà le message ``git clone`` :")
+                feedback.set_global_feedback(rst.get_codeblock('', student_code_output), True)
+                exit(0)
+                 
+        
+# Switch working directory to student/
+os.chdir("student")
+
+
+# Fetch and save the student code into a file for compilation
+# input.parse_template("student_code.c.tpl", "student_code.c")
+
+# Compilation
+p = subprocess.Popen(shlex.split("make"), stderr=subprocess.STDOUT, stdout=subprocess.PIPE)
+make_output = p.communicate()[0].decode('utf-8')
+# If compilation failed, exit with "failed" result
+if p.returncode:
+    feedback.set_tag("not_compile", True)
+    feedback.set_global_result("failed")
+    feedback.set_global_feedback("La compilation de votre code a échoué. Voici le message de sortie de la commande ``make`` :")
+    feedback.set_global_feedback(rst.get_codeblock('', make_output), True)
+    exit(0)
+else:
+    # Cppcheck
+    p = subprocess.Popen(shlex.split("make check"), stderr=subprocess.STDOUT, stdout=subprocess.PIPE)
+    cppcheck_output = p.communicate()[0].decode('utf-8')
+    if p.returncode:
+        feedback.set_tag("cppcheck", True)
+        feedback.set_global_result("failed")
+        feedback.set_global_feedback("La compilation de votre code avec ``cppcheck`` a échoué. Voici le message de sortie de la commande ``make check`` :")
+        feedback.set_global_feedback(rst.get_codeblock('', cppcheck_output), True)
+        exit(0)
+    else:
+        feedback.set_global_result("success")
+        feedback.set_global_feedback("- Votre code compile.\n")
+
+# Parse banned functions
+try:
+    banned_funcs = re.findall("BAN_FUNCS\(([a-zA-Z0-9_, ]*)\)", open('tests.c').read())[-1].replace(" ", "").split(",")
+    banned_funcs = list(filter(None, banned_funcs))
+except IndexError:
+    banned_funcs = []
+
+if banned_funcs:
+    p = subprocess.Popen(shlex.split("readelf -s student_code.o"), stderr=subprocess.STDOUT, stdout=subprocess.PIPE)
+    readelf_output = p.communicate()[0].decode('utf-8')
+    for func in banned_funcs:
+        if re.search("UND {}\n".format(func), readelf_output):
+            feedback.set_tag("banned_funcs", True)
+            feedback.set_global_result("failed")
+            feedback.set_global_feedback("Vous utilisez la fonction {}, qui n'est pas autorisée.".format(func))
+            exit(0)
+
+# Lizard : Analysis of student code complexity before removing the file (printing is done later)
+stud = lizard.analyze_file("student_code.c")
+sol = lizard.analyze_file("solutions/student_code_sol.c")
+for k in range(len(stud.function_list)):
+	feedback.set_custom_value("nlines_q"+str(k+1), stud.function_list[k].nloc)    
+	feedback.set_custom_value("cc_q"+str(k+1), stud.function_list[k].cyclomatic_complexity)  
+            
+# Remove source files
+subprocess.run("rm -rf *.c *.tpl *.h *.o", shell=True)
+
+LANG = input.get_input('@lang')
+
+# Run the code in a parallel container
+p = subprocess.Popen(shlex.split("run_student --time 20 --hard-time 60 ./tests LANGUAGE={}".format(LANG)), stderr=subprocess.STDOUT, stdout=subprocess.PIPE)
+o, e = p.communicate()
+print(o.decode("utf-8"))
+
+# If run failed, exit with "failed" result
+if p.returncode:
+    feedback.set_global_result("failed")
+    if p.returncode == 256-8:
+        montest_output = rst.get_admonition("warning", "**Erreur d'exécution**", "Votre code a produit une erreur. Le signal SIGFPE a été envoyé : *Floating Point Exception*.")
+        feedback.set_tag("sigfpe", True)
+    elif p.returncode == 256-11:
+        montest_output = rst.get_admonition("warning", "**Erreur d'exécution**", "Votre code a produit une erreur. Le signal SIGSEGV a été envoyé : *Segmentation Fault*.")
+    elif p.returncode == 252:
+        montest_output = rst.get_admonition("warning", "**Erreur d'exécution**", "Votre code a tenté d'allouer plus de mémoire que disponible.")
+        feedback.set_tag("memory", True)
+    elif p.returncode == 253:
+        montest_output = rst.get_admonition("warning", "**Erreur d'exécution**", "Votre code a pris trop de temps pour s'exécuter.")
+    else:
+        montest_output = rst.get_admonition("warning", "**Erreur d'exécution**", "Votre code a produit une erreur. code_error="+str(p.returncode))
+    feedback.set_global_feedback(rst.indent_block(2, montest_output, " "), True)
+    exit(0)
+#elif run_output:   
+#    feedback.set_global_feedback("- Sortie de votre méthode de test:\n" + rst.indent_block(2, rst.get_codeblock('', run_output), " "), True)
+
+# Comment to run the tests
+#feedback.set_global_feedback("- **Cette note n'est pas finale.** Une série de tests sera exécutée sur votre code après l'examen.\n", True)
+#exit(0)
+
+# Fetch CUnit test results
+results_raw = [r.split('#') for r in open('results.txt').read().splitlines()]
+results = [{'pid':r[0], 'code':r[1], 'desc':r[2], 'weight':int(r[3]), 'tags': r[4].split(","), 'info_msgs':r[5:]} for r in results_raw]
+
+# Produce feedback
+if all([r['code'] == 'SUCCESS' for r in results]):
+    feedback.set_global_feedback("\n- Votre code a passé tous les tests.", True)
+else:
+    feedback.set_global_feedback("\n- Il y a des erreurs dans votre solution.", True)
+
+# Lizard : printing the analysis if student code presents higher value than thresholds detailed in the file "lizard.txt", only if the file exists
+# The file "lizard.txt" contains two integers per question and one per line : the first line is the threshold for the cyclomatic complexity of the first question and the second line is the threshold for the number of lines of the first question. Next lines must be in the same order for the other questions. 
+if os.path.exists("../lizard.txt"):
+	with open("../lizard.txt",'r') as file:
+		k = 0
+		for func in stud.function_list:
+			cc_thresh = int(file.readline())
+			nlines_thresh = int(file.readline())
+			if func.cyclomatic_complexity > cc_thresh:
+				feedback.set_global_feedback("\n- Votre fonction semble être très compliquée par rapport à ce qu'il est possible de faire. Votre complexité est de {} alors que celle de la solution est de {}.".format(func.cyclomatic_complexity,sol.function_list[k].cyclomatic_complexity), True)
+			if func.nloc > nlines_thresh:
+				feedback.set_global_feedback("\n- Votre fonction semble être très longue par rapport à ce qu'il est possible de faire. Votre code comprend {} lignes (header inclus) alors que celle de la solution est de {} lignes (header inclus).".format(func.nloc,sol.function_list[k].nloc), True)
+			k += 1
+		file.close()
+        
+
+# CPU : printing the analysis if file exists and setting custome_value
+# The file has to be created in tests.c (with fprintf to write strings that can be read by python)
+# The file must contain one float per line representing the CPU_time used for the question 1,2,3,... (see tests.c of the task "palindrome" for an example)
+i = 1
+if os.path.exists("./cpu.txt"):
+	with open("./cpu.txt", 'r') as stream:
+		for line in stream.readlines():
+			feedback.set_custom_value("cpu_q"+str(i),float(line))
+			i += 1
+		stream.close()
+	# Remove the file after analysis
+	subprocess.run("rm ./cpu.txt", shell=True)
+
+score = 0
+total = 0
+tests_result = {}
+
+for test in results:
+    total += test['weight']
+    for tag in test['tags']:
+        if tag != "":
+            feedback.set_tag(tag, True)
+    if test['code'] == 'SUCCESS':
+        score += test['weight']
+        feedback.set_problem_feedback("* {desc}\n\n  => réussi ({weight}/{weight}) pts\n\n".format(**test)+("  Info: {}\n\n".format(" — ".join(test['info_msgs'])) if test['info_msgs'] else '\n'),
+                test['pid'], True)
+        tests_result[test['pid']] = True if tests_result.get(test['pid'], True) else False
+    else:
+        feedback.set_problem_feedback("* {desc}\n\n  => échoué (0/{weight}) pts\n\n".format(**test)+("  Info: {}\n\n".format(" — ".join(test['info_msgs'])) if test['info_msgs'] else '\n'),
+                test['pid'], True)
+        tests_result[test['pid']] = False
+        
+for pid, result in tests_result.items():
+    if result:
+        feedback.set_problem_result("success", pid)
+    else:
+        feedback.set_problem_result("failed", pid)
+
+with open("../task.yaml", 'r') as stream:
+    problems = yaml.load(stream)['problems']
+    
+    for name, meta in problems.items():
+        if meta['type'] == 'match':
+            answer = input.get_input(name)
+            if answer == meta['answer']:
+                feedback.set_problem_result("success", name)
+                feedback.set_problem_feedback("Votre réponse est correcte. (1/1 pts)", name, True)
+                score += 1
+            else:
+                feedback.set_problem_result("failed", name)
+                feedback.set_problem_feedback("Votre réponse est incorrecte. (0/1 pts)", name, True)
+
+            total += 1
+
+score = 100*score/(total if not total == 0 else 1)
+feedback.set_grade(score)
+feedback.set_global_result("success" if score >= 50 else "failed")

@@ -1,0 +1,56 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- limite
+- difficile
+contact_url: ''
+context: |-
+    En utilisant les propriétés des limites et des divergences, déterminer les
+    limites ou les divergences suivantes.
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Limites - 9.9
+network_grading: false
+problems:
+    q1:
+        type: math
+        header: |-
+            Calculer
+
+            .. math::
+
+                \lim_{x \to -\infty} \frac{x^{1007}-2}{2x^{1007}+1}
+
+            .. raw:: html
+
+                <script type="text/javascript" charset="UTF-8" src="//jsxgraph.org/distrib/jsxgraphcore.js"></script>
+                <link rel="stylesheet" type="text/css" href="//jsxgraph.org/distrib/jsxgraph.css" />
+        hints: |
+            Lorsqu'un quotient de polynômes tend vers l'infini, on peut le remplacer par le quotient des monôme de plus grand degré au numérateur et au dénominateur.
+
+            par exemple:
+
+            .. math::
+
+                \lim_{x\to\infty} \frac{3x^2-2x+6}{12x^2+5x} = \lim_{x\to\infty} \frac{3x^2}{12x^2} = \lim_{x\to\infty} \frac{3}{12} = \frac{1}{4}
+        name: ''
+        success_message: |-
+            .. raw:: html
+
+                <div id='jxgbox1' class='jxgbox mb-3' style='width:600px; height:600px;'></div>
+                    <script type='text/javascript'>
+                    var b = JXG.JSXGraph.initBoard('jxgbox1', {boundingbox: [-1.1, 2, -0.9, -0.5], axis: true});
+                    b.create('functiongraph', [function(x){return (Math.pow(x,1007)-2)/(2*Math.pow(x,1007)+1);},-11,1]);
+                </script>
+        answers:
+        - \frac{1}{2}
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

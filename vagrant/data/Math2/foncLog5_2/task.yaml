@@ -1,0 +1,45 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- foncLog
+- moyen
+contact_url: ''
+context: Calculer la dérivée de la fonction dérivable suivante.
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Fonctions logarithmes - 5.2
+network_grading: false
+problems:
+    q1:
+        type: math
+        header: |-
+            Entrer la fonction dérivée de
+
+            .. math::
+
+                f : \mathbb{R}_0^+ \to \mathbb{R} : x \mapsto \log_{\frac{1}{19}}(x^3)
+        hints: |-
+            Il s'agit de la dérivée d'une composée de fonction, :math:`f(x) = g(h(x))`
+
+            .. math::
+
+                f'(x) = g'(h(x)).h'(x)
+
+            Rappel:
+
+            .. math::
+
+                \log_a'(x) = \frac{1}{x.\ln(a)}
+        name: Dérivée
+        answers:
+        - \frac{3}{x\ln(\frac{1}{19})}
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

@@ -1,0 +1,49 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- foncLog
+- difficile
+contact_url: ''
+context: En utilisant les propriétés des fonctions exponentielles et logarithmes,
+    résoudre l'équation suivante dans :math:`\mathbb{R}`.
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Fonctions logarithmes - 11.8
+network_grading: false
+problems:
+    q1:
+        type: math
+        header: |-
+            Entrer toutes les solutions de l'équation.
+            Si il n'y a pas de solutions, Entrer :math:`\emptyset`.
+
+            .. math::
+
+                e^x - 4 = 5e^{-x}
+        hints: |-
+            Pour résoudre cet exercice substituer d'abord :math:`y = e^x` dans
+
+            .. math::
+
+                e^x - 4 = 5e^{-x} \leftrightarrow y-4 = 5y^{-1}
+
+            Ensuite il faudra résoudre l'équation en :math:`y` puis résoudre les équations
+
+            .. math::
+
+                y_i = e^x
+
+            en remplaçant :math:`y_i` par les solutions trouvées dans la première équation.
+        name: Equation
+        answers:
+        - \ln\left(5\right)
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

@@ -1,0 +1,41 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- expLog
+- difficile
+contact_url: ''
+context: Intégrale définie
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Fonctions exponentielles - 9.6
+network_grading: false
+problems:
+    q1:
+        type: math
+        header: |-
+            Calculer l'intégrale définie de la fonction intégrable suivante
+
+            .. math::
+                \int_{1}^{2} x^2e^{-x} \, \mathrm{d}x
+        hints: |-
+            Pour résoudre cette intégrale, il faudra appliquer deux fois l'intégration par partie
+
+            .. math::
+
+                \int_a^b f'(x)g(x) \, \mathrm{d}x =
+                [f(x)g(x)]_a^b - \int_a^b f(x)g'(x) \, \mathrm{d}x
+
+            en prenant dans ce cas-ci :math:`g(x) = x^2` et :math:`f(x) = -e^{-x}`. Ensuite refaire la même procédure en prenant cette fois :math:`g(x) = x` et :math:`f(x) = e^{-x}`.
+        name: ''
+        answers:
+        - \frac{5\left(e-2\right)}{e^2}
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

@@ -1,0 +1,80 @@
+#!/bin/python3
+# -*- coding: utf-8 -*-
+
+# Ce fichier doit être utilisé pour un exercice de type 'random'
+
+import re
+import math
+from sympy import sympify, simplify
+from sympy.parsing.latex import parse_latex
+from inginious import input, feedback, rst
+
+somme = 1000*int(input.get_input("@random")[0]*10+5)
+pourc1 = int(input.get_input("@random")[1]*10+15)/10
+pourc1 = pourc1/100
+pourc2 = int(input.get_input("@random")[2]*10+15)/10
+pourc2 = pourc2/100
+duree = int(input.get_input("@random")[3]*20+10)
+
+correct1 = str(somme*(1+duree*pourc1))
+correct2 = str(somme*(1+pourc2)**duree)
+
+grade = 0
+
+def parse_equation(latex_str):
+    # The \left and \right prefix are not supported by sympy (and useless for treatment)
+    latex_str = re.sub("(\\\left|\\\\right)", "", latex_str)
+    return parse_latex(latex_str)
+
+def is_equal(eq1, eq2):
+    return simplify(eq1) == simplify(eq2) or simplify(sympify(str(eq1))) == simplify(sympify(str(eq2)))
+
+def diff_is_less(eq1, eq2, a):
+    return abs(simplify(eq1) - simplify(eq2)) < a or abs(simplify(sympify(str(eq1))) - simplify(sympify(str(eq2)))) < a
+
+try:
+    student_answer1 = parse_equation(str(input.get_input("q1")[0]))
+    correct_answer1 = parse_equation(correct1)
+    student_answer2 = parse_equation(str(input.get_input("q2")[0]))
+    correct_answer2 = parse_equation(correct2)
+except LaTeXParsingError as e:
+    feedback.set_global_result("failed")
+    feedback.set_global_feedback("parsing error")
+
+res1 = is_equal(student_answer1, correct_answer1)
+res2 = diff_is_less(student_answer2, correct_answer2, 1)
+
+if res1:
+    feedback.set_problem_result("success","q1")
+    feedback.set_problem_feedback("Bravo!","q1")
+    grade += 50
+else:
+    feedback.set_problem_result("failed","q1")
+    feedback.set_problem_feedback("Mauvaise réponse.","q1")
+
+if res2:
+    feedback.set_problem_result("success","q2")
+    feedback.set_problem_feedback("Bravo!","q2")
+    grade += 50
+else:
+    feedback.set_problem_result("failed","q2")
+    feedback.set_problem_feedback("Mauvaise réponse.","q2")
+
+
+feedback.set_grade(grade)
+if grade == 100:
+    feedback.set_global_result("success")
+    fun2 = "{}*Math.pow({},x)".format(somme,1+pourc2)
+    fun1 = "{}+x*{}".format(somme,somme*pourc1)
+    bb = "{},{},{},{}".format(-duree*0.1,
+                             max(somme*(1+duree*pourc1), somme*(1+pourc2)**duree)*1.05,
+                             duree*1.1,
+                             somme*0.9)
+    dom = "0,{}".format(1.5*duree)
+    line = str(duree)
+    feedback.set_problem_feedback(".. raw:: html\n\n\t<div id='jxgbox1' class='jxgbox mb-3' style='width:600px; height:600px;'></div>\n\t<script type='text/javascript'>\n\tvar b = JXG.JSXGraph.initBoard('jxgbox1', {boundingbox: ["+bb+"], axis: true});\n\tb.create('functiongraph', [function(x){return "+fun1+";},"+dom+"]);\n\tb.create('functiongraph', [function(x){return "+fun2+";},"+dom+"], {strokecolor:'#00ff00'});\n\tb.create('line', [["+line+",0], ["+line+",10]], {dash:2,strokeWidth:1});\n\tb.create('text', [1,"+str(max(somme*(1+duree*pourc1), somme*(1+pourc2)**duree))+", \"Banque n°1\"], {color:\"#0000ff\"});\n\t\tb.create('text', [1,"+str(max(somme*(1+duree*pourc1), somme*(1+pourc2)**duree)-(max(somme*(1+duree*pourc1), somme*(1+pourc2)**duree)-somme)*0.03)+", \"Banque n°2\"], {color:\"#00ff00\"});\n\t</script>","q1")
+    
+    """feedback.set_problem_feedback(".. raw:: html\n\n\t<div id='jxgbox1' class='jxgbox mb-3' style='width:600px; height:400px;'></div>\n\t<script type='text/javascript'>\n\tvar b = JXG.JSXGraph.initBoard('jxgbox1', {boundingbox: [-1, 15000, 21, 9000], axis: true});\n\tfor (let n = 0; n < 21; n++) {\n\t\tb.create('point', [n, 10000+200*n], {size: 2, name:''});\n\t\tb.create('point', [n, 10000*Math.pow(1.019,n)], {size: 2, color:'#00ff00', name:''});\n\t\tb.create('text', [1,14000, \"Banque n°1\"], {color:\"#ff0000\"});\n\t\tb.create('text', [1,13750, \"Banque n°2\"], {color:\"#00ff00\"});\n\t}\n\t</script>","q1")"""
+else:
+    feedback.set_global_result("failed")
+    feedback.set_global_feedback("Une de vos réponses n'est pas correcte")

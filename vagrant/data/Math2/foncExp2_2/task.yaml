@@ -1,0 +1,42 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- expLog
+- moyen
+contact_url: ''
+context: Donner le domaine de définition pour la fonction dont l'expression est la
+    suivante
+environment_id: python3
+environment_parameters:
+    limits:
+        hard_time: ''
+        time: '30'
+        memory: '100'
+    network_grading: 'on'
+    run_cmd: ''
+environment_type: docker
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Fonctions exponentielles - 2.2
+network_grading: false
+problems:
+    q1:
+        default: ''
+        name: ''
+        type: code_single_line
+        header: |-
+            Quel est le domaine de définition réel de :math:`f(x) = \frac{x}{2^{2x}}`
+
+              - Utiliser la lettre U pour l'union
+              - Utiliser les symboles [ et ] pour les intervalles compris et non compris
+              - Utiliser les symboles { et } pour les ensembles et singletons
+              - Exclure des points avec \\{...}
+              - Utiliser le symbole 'inf' et '-inf' pour + et - l'infinie
+              - Utiliser la lettre R pour l'ensemble des réels
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

@@ -1,0 +1,48 @@
+accessible: true
+author: Victor Belpaire,Maxime Parmentier
+categories:
+- cont
+- moyen
+contact_url: ''
+context: La fonction suivante est-elle continue ?
+environment_id: databases
+environment_parameters:
+    limits:
+        hard_time: ''
+        memory: '100'
+        time: '30'
+    run_cmd: ''
+environment_type: docker
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Continuité - 2.6
+network_grading: false
+problems:
+    q1:
+        type: code_single_line
+        header: |-
+            Pour
+
+            .. math::
+
+                f : \mathbb{R}_0 \to \mathbb{R} : x \mapsto
+                \begin{cases}
+                   4 &\quad\text{si}\lt 0\\
+                   -\sqrt{x}+1 &\quad\text{si}\gt 0 \\
+                \end{cases}
+
+            Donner l'ensemble des points où la fonction n'est pas continue (exemple: {1; 2}). Si elle est continue, entrer un ensemble vide ({}).
+
+            .. raw:: html
+
+                <script type="text/javascript" charset="UTF-8" src="//jsxgraph.org/distrib/jsxgraphcore.js"></script>
+                <link rel="stylesheet" type="text/css" href="//jsxgraph.org/distrib/jsxgraph.css" />
+        name: ''
+        default: ''
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0
