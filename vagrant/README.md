@@ -1,8 +1,17 @@
-vagrant init hashicorp/bionic64
-
+## To start the VM
+```
 vagrant up
 
-vagrant up --provider=vmware_fusion
+```
+
+## To update packages on the VM
+
+```
+vagrant provision
+
+```
+
+## Some known issues
 
 ```
 Error while connecting to libvirt: Error making a connection to libvirt URI qemu:///system?no_verify=1&keyfile=/root/.ssh/id_rsa:
