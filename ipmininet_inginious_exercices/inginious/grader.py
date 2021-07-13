@@ -6,6 +6,7 @@ from ipmininet.ipnet import IPNet
 from mininet.log import lg as log
 
 from ipmininet.topologydb import TopologyDB
+from ipmininet.tests.utils import traceroute
 
 
 """
@@ -190,13 +191,15 @@ class Grader:
             for data in jr:
                 if found_gw :
                     break
-                try:
+                if "gateway" in data :
                     if data['dst'] == "default":
                         gateway = ipaddress.ip_address(data['gateway'])
                         if gateway == ipaddress.ip_address(gw):
                             found_gw = True
+                """
                 finally:
                     continue
+                """
         if found_gw :                                     
             return _("Success"), _("Congratulation")
         else:
@@ -239,7 +242,7 @@ class Grader:
             jr = json.loads(r)
             for data in jr:
                 if dst == data['dst']:
-                    try:
+                    if "nexthops" in data :
                         for nexthop in data['nexthops']:
                             if (nexthop['dev'] != outIntf[0]) or (nexthop['gateway'] != nexthopIP[0]):
                                 state == _("Failed")
@@ -247,8 +250,10 @@ class Grader:
                             if (nexthop['dev'] != outIntf[1]) or (nexthop['gateway'] != nexthopIP[1]):
                                 state == _("Failed")
                                 feedback == _("Route is not correctly configured")
+                    """            
                     finally:
-                        continue   
+                        continue
+                    """   
         return state, feedback
     
     def isRouterName(self, name:str):
@@ -386,4 +391,15 @@ class Grader:
             router = path[i]
             isNodeIP = self.isNodeIP(router, dst, self.isRouter(router))
         return dpath    
-                     
+
+
+    def traceroute(self, src: str, dst_ip: str, timeout=300, answer=[]):
+        state = _("Success")
+        feedback = _("Route is correctly configured")
+        r = traceroute(self.net, src, dst_ip, timeout)
+        print(r)
+        print(answer)
+        if r != answer:
+           state = _("Failed")
+           feedback = _("Bad answer, try again")
+        return state, feedback
