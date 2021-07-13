@@ -25,6 +25,6 @@ smtp:
     sendername: no-reply@inginious.uac.bj
     host: smtp.uac.bj
     port: 587
-    username: emery.assogba
-    password: 2009n@nti
+    username: YYYYYYY
+    password: XXXXXXX
     starttls: true
