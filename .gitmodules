@@ -1,0 +1,18 @@
+[submodule "ipmininet_inginious_exercices/tests/test/bats"]
+	path = ipmininet_inginious_exercices/tests/test/bats
+	url = https://github.com/bats-core/bats-core.git
+[submodule "ipmininet_inginious_exercices/tests/test/test_helper/bats-support"]
+	path = ipmininet_inginious_exercices/tests/test/test_helper/bats-support
+	url = https://github.com/bats-core/bats-support.git
+[submodule "ipmininet_inginious_exercices/tests/test/test_helper/bats-assert"]
+	path = ipmininet_inginious_exercices/tests/test/test_helper/bats-assert
+	url = https://github.com/bats-core/bats-assert.git
+[submodule "ipmininet_inginious_exercices/bats/bats"]
+	path = ipmininet_inginious_exercices/bats/bats
+	url = https://github.com/bats-core/bats-core.git
+[submodule "ipmininet_inginious_exercices/test_helper/bats-support"]
+	path = ipmininet_inginious_exercices/test_helper/bats-support
+	url = https://github.com/bats-core/bats-support.git
+[submodule "ipmininet_inginious_exercices/test_helper/bats-assert"]
+	path = ipmininet_inginious_exercices/test_helper/bats-assert
+	url = https://github.com/bats-core/bats-assert.git
