@@ -77,11 +77,12 @@ Vagrant.configure("2") do |config|
      #systemctl enable mongodb
      #systemctl start docker
      #systemctl enable docker
-     pip3 install --upgrade git+https://github.com/UCL-INGI/INGInious.git@v0.7 
+     pip3 install --upgrade git+https://github.com/akemery/INGInious.git
+     inginious-install --file configuration.yaml
      mkdir /var/www/html/inginious_courses
      mkdir /var/www/html/agent_tmp
      mkdir /var/www/html/inginious_bkp
-     cp /vagrant_data/configuration.yaml /var/www/html/
+     mv configuration.yaml /var/www/html/configuration.yaml
      cp /vagrant_data/inginious.conf /etc/apache2/sites-available/
      ln -s /etc/apache2/sites-available/inginious.conf  /etc/apache2/sites-enabled/inginious.conf
      apt install apache2-dev -y
@@ -97,9 +98,16 @@ Vagrant.configure("2") do |config|
      docker build -t ingi/inginious-c-cpp --label="org.inginious.grading.agent_version=3" /vagrant_data/grading/cpp
      cp -r /vagrant_data/pratiquesinginious /var/www/html/inginious_courses
      cp -r /vagrant_data/Math2 /var/www/html/inginious_courses
+     git clone https://github.com/akemery/initiation_to_linux.git /var/www/html/inginious_courses/initlinux
+     git clone https://github.com/obonaventure/LEPL1503.git /var/www/html/inginious_courses/LEPL1503
      chown -R www-data:www-data  /var/www/html/inginious_courses/pratiquesinginious
+     chown www-data:www-data  /var/www/html/configuration.yaml
      chown -R www-data:www-data  /var/www/html/inginious_courses/Math2
+     chown -R www-data:www-data  /var/www/html/inginious_courses/LEPL1503
+     chown -R www-data:www-data  /var/www/html/inginious_courses/initlinux
      usermod -aG docker www-data
      usermod -aG mongodb www-data
+     pip3 install --upgrade git+https://github.com/UCL-INGI/INGInious.git
+     /etc/init.d/apache2 restart
   SHELL
 end
